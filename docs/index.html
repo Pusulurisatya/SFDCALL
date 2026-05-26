@@ -1,0 +1,3334 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>తెలుగు నేర్చుకుందాం | Telugu 60-Day Program</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@300;400;600;700&family=Yatra+One&family=Tiro+Devanagari+Sanskrit&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #FF9933;
+    --deep-red: #C0392B;
+    --turmeric: #E8A020;
+    --gold: #D4A017;
+    --dark-bg: #1A0A00;
+    --card-bg: #2A1200;
+    --card-border: #5A2D00;
+    --text-primary: #FFF8F0;
+    --text-secondary: #D4A88A;
+    --text-telugu: #FFD580;
+    --phase1: #E74C3C;
+    --phase2: #E67E22;
+    --phase3: #27AE60;
+    --phase4: #2980B9;
+    --complete: #2ECC71;
+    --glow: rgba(255,153,51,0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Crimson Pro', serif;
+    background: var(--dark-bg);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Animated background */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      radial-gradient(ellipse at 20% 50%, rgba(200,60,0,0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 20%, rgba(255,153,51,0.06) 0%, transparent 40%),
+      radial-gradient(ellipse at 50% 80%, rgba(180,100,0,0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ===== HEADER ===== */
+  header {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 3rem 2rem 2rem;
+    background: linear-gradient(180deg, rgba(26,10,0,0.95) 0%, rgba(42,18,0,0.8) 100%);
+    border-bottom: 2px solid var(--turmeric);
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '॥ తెలుగు వరల్డ్ ॥';
+    position: absolute;
+    top: 10px; left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.3em;
+    opacity: 0.6;
+  }
+
+  .header-deco {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 4rem;
+    color: var(--saffron);
+    opacity: 0.12;
+    position: absolute;
+    top: 0; left: 5%;
+    line-height: 1;
+    user-select: none;
+    animation: floatDeco 8s ease-in-out infinite;
+  }
+  .header-deco:last-of-type { left: auto; right: 5%; animation-delay: -4s; }
+  @keyframes floatDeco {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-10px) rotate(5deg); }
+  }
+
+  h1 {
+    font-family: 'Yatra One', cursive;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    background: linear-gradient(135deg, var(--saffron), var(--turmeric), #fff8e0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+    text-shadow: none;
+  }
+
+  .subtitle {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 1.5rem;
+    color: var(--text-telugu);
+    margin-bottom: 0.5rem;
+    animation: pulse 3s ease-in-out infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
+
+  .tagline {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .stat {
+    text-align: center;
+    padding: 1rem 1.5rem;
+    background: rgba(255,153,51,0.08);
+    border: 1px solid rgba(255,153,51,0.3);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+  }
+
+  .stat-num {
+    font-family: 'Yatra One', cursive;
+    font-size: 2.2rem;
+    color: var(--saffron);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.1em;
+  }
+
+  /* Progress bar */
+  .progress-section {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .progress-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+  }
+  .progress-bar-outer {
+    background: rgba(255,255,255,0.1);
+    border-radius: 20px;
+    height: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,153,51,0.2);
+  }
+  .progress-bar-inner {
+    height: 100%;
+    background: linear-gradient(90deg, var(--deep-red), var(--saffron), var(--turmeric));
+    border-radius: 20px;
+    transition: width 0.5s ease;
+    width: 0%;
+  }
+
+  /* ===== NAV TABS ===== */
+  .phase-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    background: rgba(20,8,0,0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--card-border);
+    padding: 0;
+    flex-wrap: wrap;
+  }
+
+  .phase-tab {
+    padding: 1rem 1.8rem;
+    cursor: pointer;
+    font-family: 'Crimson Pro', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border: none;
+    background: transparent;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .phase-tab:hover { color: var(--text-primary); }
+  .phase-tab.active { color: var(--saffron); border-bottom-color: var(--saffron); }
+
+  .phase-tab span {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* ===== MAIN CONTENT ===== */
+  main {
+    position: relative;
+    z-index: 5;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .phase-section { display: none; }
+  .phase-section.active { display: block; }
+
+  .phase-header {
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .phase-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: inherit;
+    filter: brightness(0.3);
+    z-index: 0;
+  }
+
+  .phase-header > * { position: relative; z-index: 1; }
+
+  .phase-header h2 {
+    font-family: 'Yatra One', cursive;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .phase-header .phase-telugu {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 1.6rem;
+    color: var(--text-telugu);
+    margin-bottom: 0.5rem;
+  }
+
+  .phase-header p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .phase1-bg { background: linear-gradient(135deg, rgba(231,76,60,0.4), rgba(192,57,43,0.4)); border: 1px solid rgba(231,76,60,0.4); }
+  .phase2-bg { background: linear-gradient(135deg, rgba(230,126,34,0.4), rgba(211,84,0,0.4)); border: 1px solid rgba(230,126,34,0.4); }
+  .phase3-bg { background: linear-gradient(135deg, rgba(39,174,96,0.4), rgba(27,120,67,0.4)); border: 1px solid rgba(39,174,96,0.4); }
+  .phase4-bg { background: linear-gradient(135deg, rgba(41,128,185,0.4), rgba(27,88,130,0.4)); border: 1px solid rgba(41,128,185,0.4); }
+
+  /* ===== DAY CARDS ===== */
+  .days-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .day-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .day-card:hover {
+    border-color: var(--turmeric);
+    box-shadow: 0 8px 30px var(--glow);
+    transform: translateY(-3px);
+  }
+
+  .day-card.completed {
+    border-color: var(--complete);
+    background: rgba(46,204,113,0.05);
+  }
+
+  .day-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid var(--card-border);
+  }
+
+  .day-number {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Yatra One', cursive;
+    font-size: 1rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .phase1-num { background: rgba(231,76,60,0.2); border: 2px solid var(--phase1); color: #ff8a80; }
+  .phase2-num { background: rgba(230,126,34,0.2); border: 2px solid var(--phase2); color: #ffb74d; }
+  .phase3-num { background: rgba(39,174,96,0.2); border: 2px solid var(--phase3); color: #69f0ae; }
+  .phase4-num { background: rgba(41,128,185,0.2); border: 2px solid var(--phase4); color: #80d8ff; }
+  .complete-num { background: rgba(46,204,113,0.2); border: 2px solid var(--complete); color: var(--complete); }
+
+  .day-title-block { flex: 1; }
+  .day-title { font-size: 1rem; font-weight: 600; color: var(--text-primary); }
+  .day-title-te {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-telugu);
+    margin-top: 2px;
+  }
+
+  .day-check {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--card-border);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .day-check:hover { border-color: var(--complete); color: var(--complete); }
+  .day-check.done { background: var(--complete); border-color: var(--complete); color: #000; }
+
+  .day-card-body {
+    padding: 1.2rem;
+    display: none;
+  }
+
+  .day-card.expanded .day-card-body { display: block; }
+
+  .lesson-section {
+    margin-bottom: 1.5rem;
+  }
+
+  .lesson-section:last-child { margin-bottom: 0; }
+
+  .lesson-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+  }
+
+  .lesson-text {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .telugu-box {
+    background: rgba(255,153,51,0.07);
+    border: 1px solid rgba(255,153,51,0.2);
+    border-radius: 10px;
+    padding: 1rem 1.2rem;
+    margin: 0.8rem 0;
+  }
+
+  .te-word {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 1.6rem;
+    color: var(--text-telugu);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .te-translit {
+    font-size: 0.85rem;
+    color: var(--saffron);
+    font-style: italic;
+    display: block;
+  }
+
+  .te-meaning {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    display: block;
+    margin-top: 0.2rem;
+  }
+
+  /* Vocabulary table */
+  .vocab-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 0.8rem 0;
+  }
+
+  .vocab-table th {
+    background: rgba(255,153,51,0.15);
+    color: var(--saffron);
+    padding: 0.5rem 0.8rem;
+    text-align: left;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+  }
+
+  .vocab-table td {
+    padding: 0.6rem 0.8rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    color: var(--text-secondary);
+  }
+
+  .vocab-table td:first-child {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    color: var(--text-telugu);
+    font-size: 1.1rem;
+  }
+
+  .vocab-table tr:hover td { background: rgba(255,255,255,0.03); }
+
+  /* Aksharamala (alphabet) grid */
+  .akshar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+    gap: 0.5rem;
+    margin: 0.8rem 0;
+  }
+
+  .akshar-cell {
+    background: rgba(255,153,51,0.08);
+    border: 1px solid rgba(255,153,51,0.2);
+    border-radius: 8px;
+    padding: 0.6rem 0.4rem;
+    text-align: center;
+    transition: all 0.2s;
+    cursor: default;
+  }
+
+  .akshar-cell:hover {
+    background: rgba(255,153,51,0.18);
+    border-color: var(--saffron);
+    transform: scale(1.05);
+  }
+
+  .akshar-te {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 1.5rem;
+    color: var(--text-telugu);
+    display: block;
+  }
+
+  .akshar-en {
+    font-size: 0.65rem;
+    color: var(--saffron);
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* Exercise box */
+  .exercise-box {
+    background: rgba(41,128,185,0.08);
+    border: 1px solid rgba(41,128,185,0.3);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 0.8rem 0;
+  }
+
+  .exercise-box h4 {
+    font-size: 0.85rem;
+    color: #80d8ff;
+    margin-bottom: 0.8rem;
+    letter-spacing: 0.05em;
+  }
+
+  .exercise-item {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    padding: 0.4rem 0;
+    border-bottom: 1px dashed rgba(255,255,255,0.08);
+  }
+
+  .exercise-item:last-child { border-bottom: none; }
+
+  /* Tip box */
+  .tip-box {
+    background: rgba(39,174,96,0.08);
+    border-left: 3px solid var(--phase3);
+    padding: 0.8rem 1rem;
+    border-radius: 0 8px 8px 0;
+    margin: 0.8rem 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .tip-box::before {
+    content: '💡 ';
+    font-size: 1rem;
+  }
+
+  /* Grammar box */
+  .grammar-box {
+    background: rgba(155,89,182,0.08);
+    border: 1px solid rgba(155,89,182,0.3);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 0.8rem 0;
+  }
+
+  .grammar-box h4 {
+    color: #ce93d8;
+    font-size: 0.85rem;
+    margin-bottom: 0.6rem;
+  }
+
+  /* Story/passage box */
+  .passage-box {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 1.2rem;
+    margin: 0.8rem 0;
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 1.1rem;
+    line-height: 2;
+    color: var(--text-primary);
+  }
+
+  .passage-translation {
+    font-family: 'Crimson Pro', serif;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+    border-top: 1px dashed rgba(255,255,255,0.1);
+    line-height: 1.8;
+  }
+
+  /* Today Highlight */
+  .today-badge {
+    display: inline-block;
+    background: var(--saffron);
+    color: #000;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    padding: 2px 8px;
+    border-radius: 20px;
+    margin-left: 0.5rem;
+    vertical-align: middle;
+  }
+
+  /* Overview tab */
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .overview-card {
+    border-radius: 16px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .overview-card::before {
+    content: '';
+    position: absolute;
+    top: -30px; right: -30px;
+    width: 100px; height: 100px;
+    border-radius: 50%;
+    opacity: 0.1;
+  }
+
+  .ov1 { background: rgba(231,76,60,0.1); border: 1px solid rgba(231,76,60,0.3); }
+  .ov1::before { background: var(--phase1); }
+  .ov2 { background: rgba(230,126,34,0.1); border: 1px solid rgba(230,126,34,0.3); }
+  .ov2::before { background: var(--phase2); }
+  .ov3 { background: rgba(39,174,96,0.1); border: 1px solid rgba(39,174,96,0.3); }
+  .ov3::before { background: var(--phase3); }
+  .ov4 { background: rgba(41,128,185,0.1); border: 1px solid rgba(41,128,185,0.3); }
+  .ov4::before { background: var(--phase4); }
+
+  .ov-phase {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .ov1 .ov-phase { color: #ff8a80; }
+  .ov2 .ov-phase { color: #ffb74d; }
+  .ov3 .ov-phase { color: #69f0ae; }
+  .ov4 .ov-phase { color: #80d8ff; }
+
+  .ov-title {
+    font-family: 'Yatra One', cursive;
+    font-size: 1.4rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .ov-te {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-telugu);
+    margin-bottom: 0.8rem;
+  }
+
+  .ov-days { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 0.8rem; }
+
+  .ov-topics { list-style: none; }
+  .ov-topics li {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    padding: 0.25rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+  .ov-topics li::before { content: '◆'; position: absolute; left: 0; font-size: 0.5rem; top: 0.4rem; color: var(--saffron); }
+
+  /* Alphabet chart special */
+  .big-akshar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+  }
+
+  .big-akshar {
+    background: rgba(255,153,51,0.06);
+    border: 1px solid rgba(255,153,51,0.15);
+    border-radius: 12px;
+    padding: 0.8rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .big-akshar:hover {
+    background: rgba(255,153,51,0.15);
+    border-color: var(--saffron);
+    box-shadow: 0 4px 15px rgba(255,153,51,0.2);
+    transform: scale(1.08);
+  }
+
+  .big-akshar .te { font-family:'Noto Sans Telugu',sans-serif; font-size:2rem; color:var(--text-telugu); display:block; }
+  .big-akshar .en { font-size:0.7rem; color:var(--saffron); }
+  .big-akshar .sound { font-size:0.65rem; color:var(--text-secondary); margin-top:2px; }
+
+  /* Dividers */
+  .section-divider {
+    text-align: center;
+    padding: 1.5rem 0 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .section-divider::before,
+  .section-divider::after {
+    content: ' ── ';
+    color: var(--card-border);
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    border-top: 1px solid var(--card-border);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    position: relative;
+    z-index: 5;
+  }
+
+  footer .footer-te {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 1.2rem;
+    color: var(--text-telugu);
+    margin-top: 0.5rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .days-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+    .phase-tab { padding: 0.7rem 1rem; font-size: 0.85rem; }
+    h1 { font-size: 1.8rem; }
+    .big-akshar-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  /* Scroll animation */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .day-card { animation: fadeInUp 0.4s ease both; }
+
+  /* Kotha padyam box (poem) */
+  .poem-box {
+    background: rgba(255,200,100,0.04);
+    border: 1px solid rgba(255,200,100,0.2);
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    margin: 0.8rem 0;
+    font-family: 'Noto Sans Telugu', sans-serif;
+    font-size: 1.15rem;
+    line-height: 2.2;
+    color: var(--text-primary);
+    text-align: center;
+  }
+
+  .poem-meaning {
+    font-family: 'Crimson Pro', serif;
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+    text-align: left;
+    padding-top: 0.8rem;
+    border-top: 1px dashed rgba(255,200,100,0.15);
+  }
+
+  /* Summary / quick-reference strip */
+  .ref-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.8rem 0;
+  }
+
+  .ref-chip {
+    background: rgba(255,153,51,0.1);
+    border: 1px solid rgba(255,153,51,0.25);
+    border-radius: 20px;
+    padding: 0.3rem 0.8rem;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+  }
+
+  .ref-chip span {
+    font-family: 'Noto Sans Telugu', sans-serif;
+    color: var(--text-telugu);
+    margin-right: 4px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-deco">అ</div>
+  <div class="header-deco">క</div>
+  <h1>తెలుగు నేర్చుకుందాం!</h1>
+  <div class="subtitle">Telugu Nērchukuṃdāṃ — Let's Learn Telugu!</div>
+  <div class="tagline">60 Days · 1 Hour/Day · Zero to 9th Grade CBSE Syllabus</div>
+  <div class="hero-stats">
+    <div class="stat"><span class="stat-num">60</span><span class="stat-label">Days</span></div>
+    <div class="stat"><span class="stat-num">4</span><span class="stat-label">Phases</span></div>
+    <div class="stat"><span class="stat-num">60+</span><span class="stat-label">Hours</span></div>
+    <div class="stat"><span class="stat-num">9th</span><span class="stat-label">Grade Level</span></div>
+  </div>
+  <div class="progress-section">
+    <div class="progress-label">
+      <span>Overall Progress</span>
+      <span id="prog-pct">0 / 60 Days</span>
+    </div>
+    <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="main-progress"></div>
+    </div>
+  </div>
+</header>
+
+<!-- NAV TABS -->
+<nav class="phase-nav">
+  <button class="phase-tab active" onclick="showPhase('overview')">
+    📋 Overview
+    <span>సంపూర్ణ దృష్టి</span>
+  </button>
+  <button class="phase-tab" onclick="showPhase('phase1')">
+    🔤 Phase 1 <small>Days 1–15</small>
+    <span>అక్షరమాల</span>
+  </button>
+  <button class="phase-tab" onclick="showPhase('phase2')">
+    📝 Phase 2 <small>Days 16–30</small>
+    <span>పదాలు & వాక్యాలు</span>
+  </button>
+  <button class="phase-tab" onclick="showPhase('phase3')">
+    📖 Phase 3 <small>Days 31–45</small>
+    <span>పద్యాలు & గద్యాలు</span>
+  </button>
+  <button class="phase-tab" onclick="showPhase('phase4')">
+    🎓 Phase 4 <small>Days 46–60</small>
+    <span>9వ తరగతి పాఠ్యక్రమం</span>
+  </button>
+</nav>
+
+<main>
+
+<!-- ===== OVERVIEW ===== -->
+<div id="overview" class="phase-section active">
+  <div class="phase-header" style="background:linear-gradient(135deg,rgba(255,153,51,0.25),rgba(200,60,0,0.2));border:1px solid rgba(255,153,51,0.3);">
+    <h2>📚 Program Overview</h2>
+    <div class="phase-telugu">కోర్సు సారాంశం</div>
+    <p>A complete zero-to-9th-grade Telugu journey designed for students who have lived abroad and are returning to the CBSE curriculum. Each daily session is 1 hour.</p>
+  </div>
+
+  <div class="overview-grid">
+    <div class="overview-card ov1">
+      <div class="ov-phase">Phase 1 · Days 1–15</div>
+      <div class="ov-title">Script Foundation</div>
+      <div class="ov-te">అక్షరమాల</div>
+      <div class="ov-days">⏱ 15 hours · Core Alphabet</div>
+      <ul class="ov-topics">
+        <li>16 Vowels (అచ్చులు)</li>
+        <li>36 Consonants (హల్లులు)</li>
+        <li>Vowel Signs / Guninthalu</li>
+        <li>Conjunct consonants (Vattulu)</li>
+        <li>Telugu Numbers 1–100</li>
+        <li>Basic 3-letter words</li>
+      </ul>
+    </div>
+    <div class="overview-card ov2">
+      <div class="ov-phase">Phase 2 · Days 16–30</div>
+      <div class="ov-title">Words & Sentences</div>
+      <div class="ov-te">పదాలు & వాక్యాలు</div>
+      <div class="ov-days">⏱ 15 hours · Core Grammar</div>
+      <ul class="ov-topics">
+        <li>Vocabulary: Body, Colors, Family</li>
+        <li>Days, Months, Numbers</li>
+        <li>Basic sentence structure (S+O+V)</li>
+        <li>Present, Past, Future tense</li>
+        <li>Question words</li>
+        <li>Conversational phrases</li>
+      </ul>
+    </div>
+    <div class="overview-card ov3">
+      <div class="ov-phase">Phase 3 · Days 31–45</div>
+      <div class="ov-title">Prose & Poetry</div>
+      <div class="ov-te">గద్యాలు & పద్యాలు</div>
+      <div class="ov-days">⏱ 15 hours · Literary Skills</div>
+      <ul class="ov-topics">
+        <li>Reading comprehension passages</li>
+        <li>Classical Telugu poetry (Padyalu)</li>
+        <li>Sandhulu (Euphonic combinations)</li>
+        <li>Samasalu (Compound words)</li>
+        <li>Alankaralu (Figures of Speech)</li>
+        <li>Essay writing (Viyasalu)</li>
+      </ul>
+    </div>
+    <div class="overview-card ov4">
+      <div class="ov-phase">Phase 4 · Days 46–60</div>
+      <div class="ov-title">9th Grade Mastery</div>
+      <div class="ov-te">9వ తరగతి పాఠ్యక్రమం</div>
+      <div class="ov-days">⏱ 15 hours · CBSE AP Syllabus</div>
+      <ul class="ov-topics">
+        <li>Textbook prose lessons</li>
+        <li>Padyalu (prescribed poems)</li>
+        <li>Advanced grammar (Vyakaranam)</li>
+        <li>Letter writing (Lekhalu)</li>
+        <li>Creative writing</li>
+        <li>Practice exam & revision</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-divider">Daily Schedule Suggestion</div>
+  <div class="days-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr))">
+    <div class="day-card" style="cursor:default;">
+      <div class="day-card-header">
+        <div class="day-number phase1-num">⏰</div>
+        <div class="day-title-block">
+          <div class="day-title">Minutes 0 – 10</div>
+          <div class="day-title-te">పున‌రావలోకనం · Revision</div>
+        </div>
+      </div>
+      <div class="day-card-body" style="display:block;">
+        <div class="lesson-text">Revise previous day's letters, words or concepts. Write or say them from memory.</div>
+      </div>
+    </div>
+    <div class="day-card" style="cursor:default;">
+      <div class="day-card-header">
+        <div class="day-number phase2-num">📖</div>
+        <div class="day-title-block">
+          <div class="day-title">Minutes 10 – 35</div>
+          <div class="day-title-te">కొత్త పాఠం · New Lesson</div>
+        </div>
+      </div>
+      <div class="day-card-body" style="display:block;">
+        <div class="lesson-text">Study the new content for the day — alphabet group, vocabulary set, grammar rule, or reading passage.</div>
+      </div>
+    </div>
+    <div class="day-card" style="cursor:default;">
+      <div class="day-card-header">
+        <div class="day-number phase3-num">✍️</div>
+        <div class="day-title-block">
+          <div class="day-title">Minutes 35 – 55</div>
+          <div class="day-title-te">వ్రాత సాధన · Writing Practice</div>
+        </div>
+      </div>
+      <div class="day-card-body" style="display:block;">
+        <div class="lesson-text">Write the day's characters or words 5 times each in a notebook. Practice the exercise prompts.</div>
+      </div>
+    </div>
+    <div class="day-card" style="cursor:default;">
+      <div class="day-card-header">
+        <div class="day-number phase4-num">🎯</div>
+        <div class="day-title-block">
+          <div class="day-title">Minutes 55 – 60</div>
+          <div class="day-title-te">స్వయం పరీక్ష · Self-Test</div>
+        </div>
+      </div>
+      <div class="day-card-body" style="display:block;">
+        <div class="lesson-text">Quiz yourself on today's learning. Mark the day complete using the ✓ button on the card.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PHASE 1 ===== -->
+<div id="phase1" class="phase-section">
+  <div class="phase-header phase1-bg">
+    <h2>🔤 Phase 1: అక్షరమాల</h2>
+    <div class="phase-telugu">Aksharamāla — The Telugu Alphabet</div>
+    <p>Days 1–15 | Start from zero. Master the script — vowels, consonants, signs, numbers & basic words.</p>
+  </div>
+
+  <div class="days-grid">
+
+    <!-- DAY 1 -->
+    <div class="day-card" id="card-1" onclick="toggleCard(1)">
+      <div class="day-card-header">
+        <div class="day-number phase1-num">1</div>
+        <div class="day-title-block">
+          <div class="day-title">Welcome to Telugu!</div>
+          <div class="day-title-te">తెలుగు లోకానికి స్వాగతం</div>
+        </div>
+        <div class="day-check" id="chk-1" onclick="markDone(event,1)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">🎯 Today's Goal</div>
+          <div class="lesson-text">Understand what Telugu is, where it's spoken, and learn the first 8 Vowels (అచ్చులు — Achulu).</div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">🌍 About Telugu</div>
+          <div class="lesson-text">Telugu is the official language of Andhra Pradesh & Telangana. It is the 4th most spoken language in India. It is written in a beautiful curved script. The AP CBSE 9th grade curriculum covers prose, poetry and grammar.</div>
+          <div class="tip-box">Telugu is called "Italian of the East" because almost every word ends in a vowel!</div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📜 Vowels — అచ్చులు (Achulu) — Part 1 (8 of 16)</div>
+          <div class="akshar-grid">
+            <div class="akshar-cell"><span class="akshar-te">అ</span><span class="akshar-en">a</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఆ</span><span class="akshar-en">aa</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఇ</span><span class="akshar-en">i</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఈ</span><span class="akshar-en">ee</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఉ</span><span class="akshar-en">u</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఊ</span><span class="akshar-en">oo</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఋ</span><span class="akshar-en">ri</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ౠ</span><span class="akshar-en">rree</span></div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">✍️ Writing Practice</div>
+          <div class="exercise-box">
+            <h4>Write each letter 5 times in your notebook:</h4>
+            <div class="exercise-item">అ అ అ అ అ</div>
+            <div class="exercise-item">ఆ ఆ ఆ ఆ ఆ</div>
+            <div class="exercise-item">ఇ ఇ ఇ ఇ ఇ</div>
+            <div class="exercise-item">ఈ ఈ ఈ ఈ ఈ</div>
+          </div>
+          <div class="tip-box">అ sounds like 'a' in "apple". ఆ is longer — like 'aa' in "father". ఇ = 'i' in "it". ఈ = 'ee' in "feet".</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="day-card" id="card-2" onclick="toggleCard(2)">
+      <div class="day-card-header">
+        <div class="day-number phase1-num">2</div>
+        <div class="day-title-block">
+          <div class="day-title">Vowels Part 2</div>
+          <div class="day-title-te">అచ్చులు — భాగం 2</div>
+        </div>
+        <div class="day-check" id="chk-2" onclick="markDone(event,2)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">🎯 Today's Goal</div>
+          <div class="lesson-text">Learn the remaining 8 vowels (total 16) and practice writing all 16.</div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📜 Vowels — అచ్చులు — Part 2</div>
+          <div class="akshar-grid">
+            <div class="akshar-cell"><span class="akshar-te">ఎ</span><span class="akshar-en">e</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఏ</span><span class="akshar-en">ae</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఐ</span><span class="akshar-en">ai</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఒ</span><span class="akshar-en">o</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఓ</span><span class="akshar-en">oo</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఔ</span><span class="akshar-en">au</span></div>
+            <div class="akshar-cell"><span class="akshar-te">అం</span><span class="akshar-en">am</span></div>
+            <div class="akshar-cell"><span class="akshar-te">అః</span><span class="akshar-en">ah</span></div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📋 All 16 Vowels — Complete Reference</div>
+          <div class="akshar-grid">
+            <div class="akshar-cell"><span class="akshar-te">అ</span><span class="akshar-en">a</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఆ</span><span class="akshar-en">aa</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఇ</span><span class="akshar-en">i</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఈ</span><span class="akshar-en">ee</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఉ</span><span class="akshar-en">u</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఊ</span><span class="akshar-en">oo</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఋ</span><span class="akshar-en">ri</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఎ</span><span class="akshar-en">e</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఏ</span><span class="akshar-en">ae</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఐ</span><span class="akshar-en">ai</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఒ</span><span class="akshar-en">o</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఓ</span><span class="akshar-en">oo</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఔ</span><span class="akshar-en">au</span></div>
+            <div class="akshar-cell"><span class="akshar-te">అం</span><span class="akshar-en">am</span></div>
+            <div class="akshar-cell"><span class="akshar-te">అః</span><span class="akshar-en">ah</span></div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">🗣️ Pronunciation Guide</div>
+          <div class="lesson-text">
+            <div class="ref-strip">
+              <div class="ref-chip"><span>ఎ</span>like 'e' in "bed"</div>
+              <div class="ref-chip"><span>ఏ</span>like 'a' in "late"</div>
+              <div class="ref-chip"><span>ఐ</span>like 'i' in "bite"</div>
+              <div class="ref-chip"><span>ఒ</span>like 'o' in "hot"</div>
+              <div class="ref-chip"><span>ఓ</span>like 'o' in "note"</div>
+              <div class="ref-chip"><span>ఔ</span>like 'ow' in "cow"</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 3 -->
+    <div class="day-card" id="card-3" onclick="toggleCard(3)">
+      <div class="day-card-header">
+        <div class="day-number phase1-num">3</div>
+        <div class="day-title-block">
+          <div class="day-title">Consonants Group 1 — క వర్గం</div>
+          <div class="day-title-te">హల్లులు — "క" వర్గం</div>
+        </div>
+        <div class="day-check" id="chk-3" onclick="markDone(event,3)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">🎯 Today's Goal</div>
+          <div class="lesson-text">Learn the first group of 5 consonants: క ఖ గ ఘ ఙ (Velar sounds)</div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📜 క వర్గం — Ka-Varga (Throat/Velar Group)</div>
+          <div class="akshar-grid">
+            <div class="akshar-cell"><span class="akshar-te">క</span><span class="akshar-en">ka</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఖ</span><span class="akshar-en">kha</span></div>
+            <div class="akshar-cell"><span class="akshar-te">గ</span><span class="akshar-en">ga</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఘ</span><span class="akshar-en">gha</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఙ</span><span class="akshar-en">nga</span></div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Words using క వర్గం</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Transliteration</th><th>Meaning</th></tr>
+            <tr><td>కమల</td><td>kamala</td><td>Lotus flower</td></tr>
+            <tr><td>గుడి</td><td>gudi</td><td>Temple</td></tr>
+            <tr><td>గమనం</td><td>gamanam</td><td>Movement / Travel</td></tr>
+            <tr><td>ఖగం</td><td>khagam</td><td>Bird (poetic)</td></tr>
+          </table>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">✍️ Practice</div>
+          <div class="exercise-box">
+            <h4>Write each consonant 5 times:</h4>
+            <div class="exercise-item">క క క క క</div>
+            <div class="exercise-item">ఖ ఖ ఖ ఖ ఖ</div>
+            <div class="exercise-item">గ గ గ గ గ</div>
+            <div class="exercise-item">ఘ ఘ ఘ ఘ ఘ</div>
+          </div>
+          <div class="tip-box">క = k in "kit" (unaspirated). ఖ = k with a puff of air. గ = g in "go". ఘ = g with breathy sound. ఙ is rarely used standalone.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 4 -->
+    <div class="day-card" id="card-4" onclick="toggleCard(4)">
+      <div class="day-card-header">
+        <div class="day-number phase1-num">4</div>
+        <div class="day-title-block">
+          <div class="day-title">Consonants — చ, జ వర్గాలు</div>
+          <div class="day-title-te">హల్లులు — "చ" వర్గం</div>
+        </div>
+        <div class="day-check" id="chk-4" onclick="markDone(event,4)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📜 చ వర్గం — Palatal Group</div>
+          <div class="akshar-grid">
+            <div class="akshar-cell"><span class="akshar-te">చ</span><span class="akshar-en">cha</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఛ</span><span class="akshar-en">chha</span></div>
+            <div class="akshar-cell"><span class="akshar-te">జ</span><span class="akshar-en">ja</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఝ</span><span class="akshar-en">jha</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఞ</span><span class="akshar-en">nya</span></div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Words using చ వర్గం</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Transliteration</th><th>Meaning</th></tr>
+            <tr><td>చదువు</td><td>chaduvu</td><td>Study / Education</td></tr>
+            <tr><td>చేయి</td><td>chēyi</td><td>Hand</td></tr>
+            <tr><td>జలం</td><td>jalam</td><td>Water</td></tr>
+            <tr><td>జీవితం</td><td>jīvitam</td><td>Life</td></tr>
+            <tr><td>చంద్రుడు</td><td>chandrudu</td><td>Moon</td></tr>
+          </table>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">✍️ Practice</div>
+          <div class="exercise-box">
+            <h4>Copy these words in your notebook:</h4>
+            <div class="exercise-item">చదువు — Study hard!</div>
+            <div class="exercise-item">జలం — Water</div>
+            <div class="exercise-item">చేయి — Hand</div>
+          </div>
+          <div class="tip-box">చ = "ch" in "chair". జ = "j" in "jump". These two groups are very common in Telugu words!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 5 -->
+    <div class="day-card" id="card-5" onclick="toggleCard(5)">
+      <div class="day-card-header">
+        <div class="day-number phase1-num">5</div>
+        <div class="day-title-block">
+          <div class="day-title">Consonants — ట వర్గం</div>
+          <div class="day-title-te">హల్లులు — "ట" వర్గం (Retroflex)</div>
+        </div>
+        <div class="day-check" id="chk-5" onclick="markDone(event,5)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📜 ట వర్గం — Retroflex Group (tongue curled back)</div>
+          <div class="akshar-grid">
+            <div class="akshar-cell"><span class="akshar-te">ట</span><span class="akshar-en">ṭa</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఠ</span><span class="akshar-en">ṭha</span></div>
+            <div class="akshar-cell"><span class="akshar-te">డ</span><span class="akshar-en">ḍa</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఢ</span><span class="akshar-en">ḍha</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ణ</span><span class="akshar-en">ṇa</span></div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Words using ట వర్గం</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Transliteration</th><th>Meaning</th></tr>
+            <tr><td>టీచర్</td><td>ṭīcar</td><td>Teacher</td></tr>
+            <tr><td>డబ్బు</td><td>ḍabbu</td><td>Money</td></tr>
+            <tr><td>పుస్తకం</td><td>pustakam</td><td>Book</td></tr>
+            <tr><td>నీళ్ళు</td><td>nīḷḷu</td><td>Water (colloquial)</td></tr>
+          </table>
+          <div class="tip-box">Retroflex sounds (ట,డ,ణ) are made by curling your tongue back to touch the roof of your mouth. This is unique to Indian languages!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 6 -->
+    <div class="day-card" id="card-6" onclick="toggleCard(6)">
+      <div class="day-card-header">
+        <div class="day-number phase1-num">6</div>
+        <div class="day-title-block">
+          <div class="day-title">Consonants — త, ద వర్గాలు</div>
+          <div class="day-title-te">హల్లులు — "త" వర్గం (Dental)</div>
+        </div>
+        <div class="day-check" id="chk-6" onclick="markDone(event,6)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📜 త వర్గం — Dental Group (tongue touches teeth)</div>
+          <div class="akshar-grid">
+            <div class="akshar-cell"><span class="akshar-te">త</span><span class="akshar-en">ta</span></div>
+            <div class="akshar-cell"><span class="akshar-te">థ</span><span class="akshar-en">tha</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ద</span><span class="akshar-en">da</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ధ</span><span class="akshar-en">dha</span></div>
+            <div class="akshar-cell"><span class="akshar-te">న</span><span class="akshar-en">na</span></div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Common words with త వర్గం</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Transliteration</th><th>Meaning</th></tr>
+            <tr><td>తల్లి</td><td>talli</td><td>Mother</td></tr>
+            <tr><td>తండ్రి</td><td>tandri</td><td>Father</td></tr>
+            <tr><td>దేశం</td><td>dēśam</td><td>Country</td></tr>
+            <tr><td>నమస్కారం</td><td>namaskāram</td><td>Greetings/Respect</td></tr>
+            <tr><td>నది</td><td>nadi</td><td>River</td></tr>
+          </table>
+          <div class="telugu-box">
+            <span class="te-word">నమస్కారం!</span>
+            <span class="te-translit">Namaskāram!</span>
+            <span class="te-meaning">Greetings! (The most common Telugu greeting)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 7 -->
+    <div class="day-card" id="card-7" onclick="toggleCard(7)">
+      <div class="day-card-header">
+        <div class="day-number phase1-num">7</div>
+        <div class="day-title-block">
+          <div class="day-title">Consonants — ప వర్గం</div>
+          <div class="day-title-te">హల్లులు — "ప" వర్గం (Labial)</div>
+        </div>
+        <div class="day-check" id="chk-7" onclick="markDone(event,7)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📜 ప వర్గం — Labial Group (lip sounds)</div>
+          <div class="akshar-grid">
+            <div class="akshar-cell"><span class="akshar-te">ప</span><span class="akshar-en">pa</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ఫ</span><span class="akshar-en">pha</span></div>
+            <div class="akshar-cell"><span class="akshar-te">బ</span><span class="akshar-en">ba</span></div>
+            <div class="akshar-cell"><span class="akshar-te">భ</span><span class="akshar-en">bha</span></div>
+            <div class="akshar-cell"><span class="akshar-te">మ</span><span class="akshar-en">ma</span></div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Key Vocabulary</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Transliteration</th><th>Meaning</th></tr>
+            <tr><td>పాఠశాల</td><td>pāṭhaśāla</td><td>School</td></tr>
+            <tr><td>పుస్తకం</td><td>pustakam</td><td>Book</td></tr>
+            <tr><td>మనసు</td><td>manasu</td><td>Mind / Heart</td></tr>
+            <tr><td>భారతదేశం</td><td>bhāratadēśam</td><td>India</td></tr>
+            <tr><td>బాల</td><td>bāla</td><td>Child / Girl</td></tr>
+          </table>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">🗣️ Milestone — All 25 Main Consonants Learned!</div>
+          <div class="tip-box">You have now covered all 5 classical consonant groups! 5 groups × 5 = 25 consonants. That's the core of the Telugu script. 10 more letters remain tomorrow.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 8 -->
+    <div class="day-card" id="card-8" onclick="toggleCard(8)">
+      <div class="day-card-header">
+        <div class="day-number phase1-num">8</div>
+        <div class="day-title-block">
+          <div class="day-title">Semi-vowels & Sibilants</div>
+          <div class="day-title-te">య ర ల వ శ ష స హ ళ</div>
+        </div>
+        <div class="day-check" id="chk-8" onclick="markDone(event,8)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📜 Semi-vowels, Sibilants & Special Letters</div>
+          <div class="akshar-grid">
+            <div class="akshar-cell"><span class="akshar-te">య</span><span class="akshar-en">ya</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ర</span><span class="akshar-en">ra</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ల</span><span class="akshar-en">la</span></div>
+            <div class="akshar-cell"><span class="akshar-te">వ</span><span class="akshar-en">va</span></div>
+            <div class="akshar-cell"><span class="akshar-te">శ</span><span class="akshar-en">śa</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ష</span><span class="akshar-en">ṣa</span></div>
+            <div class="akshar-cell"><span class="akshar-te">స</span><span class="akshar-en">sa</span></div>
+            <div class="akshar-cell"><span class="akshar-te">హ</span><span class="akshar-en">ha</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ళ</span><span class="akshar-en">ḷa</span></div>
+            <div class="akshar-cell"><span class="akshar-te">క్ష</span><span class="akshar-en">kṣa</span></div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Key Words</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Transliteration</th><th>Meaning</th></tr>
+            <tr><td>యువత</td><td>yuvata</td><td>Youth</td></tr>
+            <tr><td>రాత్రి</td><td>rātri</td><td>Night</td></tr>
+            <tr><td>లోకం</td><td>lōkam</td><td>World</td></tr>
+            <tr><td>వసంతం</td><td>vasantam</td><td>Spring season</td></tr>
+            <tr><td>సత్యం</td><td>satyam</td><td>Truth</td></tr>
+            <tr><td>హృదయం</td><td>hṛdayam</td><td>Heart</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 9 -->
+    <div class="day-card" id="card-9" onclick="toggleCard(9)">
+      <div class="day-card-header">
+        <div class="day-number phase1-num">9</div>
+        <div class="day-title-block">
+          <div class="day-title">Vowel Signs — Guninthalu Part 1</div>
+          <div class="day-title-te">గుణింతాలు — భాగం 1</div>
+        </div>
+        <div class="day-check" id="chk-9" onclick="markDone(event,9)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 What are Guninthalu?</div>
+          <div class="lesson-text">When a vowel combines with a consonant, the vowel takes a special shape called a "guṇintam" (vowel sign). This is like how "k" + "a" = "ka". In Telugu, these signs attach to the consonant.</div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📜 "క" with all vowel signs — క గుణింతం</div>
+          <div class="akshar-grid">
+            <div class="akshar-cell"><span class="akshar-te">క</span><span class="akshar-en">ka</span></div>
+            <div class="akshar-cell"><span class="akshar-te">కా</span><span class="akshar-en">kaa</span></div>
+            <div class="akshar-cell"><span class="akshar-te">కి</span><span class="akshar-en">ki</span></div>
+            <div class="akshar-cell"><span class="akshar-te">కీ</span><span class="akshar-en">kee</span></div>
+            <div class="akshar-cell"><span class="akshar-te">కు</span><span class="akshar-en">ku</span></div>
+            <div class="akshar-cell"><span class="akshar-te">కూ</span><span class="akshar-en">koo</span></div>
+            <div class="akshar-cell"><span class="akshar-te">కె</span><span class="akshar-en">ke</span></div>
+            <div class="akshar-cell"><span class="akshar-te">కే</span><span class="akshar-en">kae</span></div>
+            <div class="akshar-cell"><span class="akshar-te">కై</span><span class="akshar-en">kai</span></div>
+            <div class="akshar-cell"><span class="akshar-te">కొ</span><span class="akshar-en">ko</span></div>
+            <div class="akshar-cell"><span class="akshar-te">కో</span><span class="akshar-en">koo</span></div>
+            <div class="akshar-cell"><span class="akshar-te">కౌ</span><span class="akshar-en">kau</span></div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Words formed with గుణింతాలు</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Meaning</th></tr>
+            <tr><td>కాకి</td><td>Crow</td></tr>
+            <tr><td>కుక్క</td><td>Dog</td></tr>
+            <tr><td>కీటకం</td><td>Insect</td></tr>
+            <tr><td>కోతి</td><td>Monkey</td></tr>
+          </table>
+          <div class="tip-box">Master "క" with all vowel signs today. Then apply the same pattern to every consonant — this is how Telugu reading works!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 10 -->
+    <div class="day-card" id="card-10" onclick="toggleCard(10)">
+      <div class="day-card-header">
+        <div class="day-number phase1-num">10</div>
+        <div class="day-title-block">
+          <div class="day-title">Guninthalu Practice — Many Consonants</div>
+          <div class="day-title-te">గుణింతాలు — సాధన</div>
+        </div>
+        <div class="day-check" id="chk-10" onclick="markDone(event,10)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📜 Practice గుణింతాలు for 6 consonants</div>
+          <div class="akshar-grid">
+            <div class="akshar-cell"><span class="akshar-te">మా</span><span class="akshar-en">maa</span></div>
+            <div class="akshar-cell"><span class="akshar-te">మి</span><span class="akshar-en">mi</span></div>
+            <div class="akshar-cell"><span class="akshar-te">మీ</span><span class="akshar-en">mee</span></div>
+            <div class="akshar-cell"><span class="akshar-te">తా</span><span class="akshar-en">taa</span></div>
+            <div class="akshar-cell"><span class="akshar-te">తి</span><span class="akshar-en">ti</span></div>
+            <div class="akshar-cell"><span class="akshar-te">తీ</span><span class="akshar-en">tee</span></div>
+            <div class="akshar-cell"><span class="akshar-te">నా</span><span class="akshar-en">naa</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ని</span><span class="akshar-en">ni</span></div>
+            <div class="akshar-cell"><span class="akshar-te">రా</span><span class="akshar-en">raa</span></div>
+            <div class="akshar-cell"><span class="akshar-te">రి</span><span class="akshar-en">ri</span></div>
+            <div class="akshar-cell"><span class="akshar-te">లా</span><span class="akshar-en">laa</span></div>
+            <div class="akshar-cell"><span class="akshar-te">వా</span><span class="akshar-en">vaa</span></div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Common 2-syllable words to read</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Transliteration</th><th>Meaning</th></tr>
+            <tr><td>మాట</td><td>māṭa</td><td>Word / Speech</td></tr>
+            <tr><td>తల</td><td>tala</td><td>Head</td></tr>
+            <tr><td>నీరు</td><td>nīru</td><td>Water</td></tr>
+            <tr><td>రాజు</td><td>rāju</td><td>King</td></tr>
+            <tr><td>వారు</td><td>vāru</td><td>They (respectful)</td></tr>
+            <tr><td>లోపం</td><td>lōpam</td><td>Deficiency</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 11 -->
+    <div class="day-card" id="card-11" onclick="toggleCard(11)">
+      <div class="day-card-header">
+        <div class="day-number phase1-num">11</div>
+        <div class="day-title-block">
+          <div class="day-title">Conjunct Consonants — Vattulu</div>
+          <div class="day-title-te">వత్తులు — సంయుక్తాక్షరాలు</div>
+        </div>
+        <div class="day-check" id="chk-11" onclick="markDone(event,11)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 What are Vattulu?</div>
+          <div class="lesson-text">When a consonant has no vowel (called "halanta"), it attaches below or beside the next consonant as a small subscript form called a "vattu." These form conjunct consonants — very important in Telugu!</div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📜 Common Vattulu Examples</div>
+          <div class="akshar-grid">
+            <div class="akshar-cell"><span class="akshar-te">క్క</span><span class="akshar-en">kka</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ట్ట</span><span class="akshar-en">ṭṭa</span></div>
+            <div class="akshar-cell"><span class="akshar-te">త్త</span><span class="akshar-en">tta</span></div>
+            <div class="akshar-cell"><span class="akshar-te">న్న</span><span class="akshar-en">nna</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ప్ప</span><span class="akshar-en">ppa</span></div>
+            <div class="akshar-cell"><span class="akshar-te">మ్మ</span><span class="akshar-en">mma</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ల్ల</span><span class="akshar-en">lla</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ర్ర</span><span class="akshar-en">rra</span></div>
+            <div class="akshar-cell"><span class="akshar-te">స్త</span><span class="akshar-en">sta</span></div>
+            <div class="akshar-cell"><span class="akshar-te">ద్ద</span><span class="akshar-en">dda</span></div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Words with Vattulu</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Transliteration</th><th>Meaning</th></tr>
+            <tr><td>అక్క</td><td>akka</td><td>Elder sister</td></tr>
+            <tr><td>అమ్మ</td><td>amma</td><td>Mother (informal)</td></tr>
+            <tr><td>పత్తి</td><td>patti</td><td>Cotton</td></tr>
+            <tr><td>ఉప్పు</td><td>uppu</td><td>Salt</td></tr>
+            <tr><td>కళ్ళు</td><td>kaḷḷu</td><td>Eyes</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 12 -->
+    <div class="day-card" id="card-12" onclick="toggleCard(12)">
+      <div class="day-card-header">
+        <div class="day-number phase1-num">12</div>
+        <div class="day-title-block">
+          <div class="day-title">Telugu Numbers — సంఖ్యలు</div>
+          <div class="day-title-te">తెలుగు అంకెలు 1 నుండి 20</div>
+        </div>
+        <div class="day-check" id="chk-12" onclick="markDone(event,12)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📜 Numbers 1–20 in Telugu Script & Words</div>
+          <table class="vocab-table">
+            <tr><th>Number</th><th>Telugu Script</th><th>Telugu Word</th><th>Sound</th></tr>
+            <tr><td>1</td><td>౧</td><td>ఒకటి</td><td>okati</td></tr>
+            <tr><td>2</td><td>౨</td><td>రెండు</td><td>rendu</td></tr>
+            <tr><td>3</td><td>౩</td><td>మూడు</td><td>mūḍu</td></tr>
+            <tr><td>4</td><td>౪</td><td>నాలుగు</td><td>nālugu</td></tr>
+            <tr><td>5</td><td>౫</td><td>అయిదు</td><td>ayidu</td></tr>
+            <tr><td>6</td><td>౬</td><td>ఆరు</td><td>āru</td></tr>
+            <tr><td>7</td><td>౭</td><td>ఏడు</td><td>ēḍu</td></tr>
+            <tr><td>8</td><td>౮</td><td>ఎనిమిది</td><td>enimidi</td></tr>
+            <tr><td>9</td><td>౯</td><td>తొమ్మిది</td><td>tommidi</td></tr>
+            <tr><td>10</td><td>౧౦</td><td>పది</td><td>padi</td></tr>
+            <tr><td>11</td><td>౧౧</td><td>పదకొండు</td><td>padakoṇḍu</td></tr>
+            <tr><td>20</td><td>౨౦</td><td>ఇరవై</td><td>iravai</td></tr>
+          </table>
+          <div class="tip-box">Telugu has its own numeral symbols (౧ ౨ ౩...) but modern texts use 1 2 3. Learn both!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 13 -->
+    <div class="day-card" id="card-13" onclick="toggleCard(13)">
+      <div class="day-card-header">
+        <div class="day-number phase1-num">13</div>
+        <div class="day-title-block">
+          <div class="day-title">Numbers 20–100 & Ordinals</div>
+          <div class="day-title-te">సంఖ్యలు 20-100 & క్రమవాచకాలు</div>
+        </div>
+        <div class="day-check" id="chk-13" onclick="markDone(event,13)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📜 Tens in Telugu</div>
+          <table class="vocab-table">
+            <tr><th>Number</th><th>Telugu</th><th>Sound</th></tr>
+            <tr><td>10</td><td>పది</td><td>padi</td></tr>
+            <tr><td>20</td><td>ఇరవై</td><td>iravai</td></tr>
+            <tr><td>30</td><td>ముప్పై</td><td>muppai</td></tr>
+            <tr><td>40</td><td>నలభై</td><td>nalabhai</td></tr>
+            <tr><td>50</td><td>యాభై</td><td>yābhai</td></tr>
+            <tr><td>60</td><td>అరవై</td><td>aravai</td></tr>
+            <tr><td>70</td><td>డెబ్బై</td><td>ḍebbai</td></tr>
+            <tr><td>80</td><td>ఎనభై</td><td>enabhai</td></tr>
+            <tr><td>90</td><td>తొంభై</td><td>tombhai</td></tr>
+            <tr><td>100</td><td>వంద</td><td>vanda</td></tr>
+          </table>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📜 Ordinal Numbers (1st, 2nd...)</div>
+          <div class="ref-strip">
+            <div class="ref-chip"><span>మొదటి</span>1st</div>
+            <div class="ref-chip"><span>రెండవ</span>2nd</div>
+            <div class="ref-chip"><span>మూడవ</span>3rd</div>
+            <div class="ref-chip"><span>నాల్గవ</span>4th</div>
+            <div class="ref-chip"><span>తొమ్మిదవ</span>9th</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 14 -->
+    <div class="day-card" id="card-14" onclick="toggleCard(14)">
+      <div class="day-card-header">
+        <div class="day-number phase1-num">14</div>
+        <div class="day-title-block">
+          <div class="day-title">Reading Simple Words</div>
+          <div class="day-title-te">సాధారణ పదాలు చదువు</div>
+        </div>
+        <div class="day-check" id="chk-14" onclick="markDone(event,14)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 Read These Words Aloud (3–4 letter words)</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Sound</th><th>Meaning</th></tr>
+            <tr><td>కల</td><td>kala</td><td>Dream</td></tr>
+            <tr><td>వన</td><td>vana</td><td>Forest</td></tr>
+            <tr><td>రవి</td><td>ravi</td><td>Sun / Boy's name</td></tr>
+            <tr><td>సరి</td><td>sari</td><td>Correct / Equal</td></tr>
+            <tr><td>తడి</td><td>taḍi</td><td>Wet</td></tr>
+            <tr><td>పలు</td><td>palu</td><td>Many / Several</td></tr>
+            <tr><td>కవి</td><td>kavi</td><td>Poet</td></tr>
+            <tr><td>పని</td><td>pani</td><td>Work</td></tr>
+            <tr><td>మరి</td><td>mari</td><td>Then / And then</td></tr>
+            <tr><td>అల</td><td>ala</td><td>Wave</td></tr>
+            <tr><td>నల</td><td>nala</td><td>Name (Nala, from Mahabharata)</td></tr>
+            <tr><td>కల</td><td>kala</td><td>Art / Skill</td></tr>
+          </table>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">✍️ Sentence Reading (your first full sentences!)</div>
+          <div class="passage-box">
+            రవి వస్తాడు.
+            <div class="passage-translation">Ravi will come. (Ravi vastāḍu)</div>
+            మరి నీవు?
+            <div class="passage-translation">And you? (Mari nīvu?)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 15 -->
+    <div class="day-card" id="card-15" onclick="toggleCard(15)">
+      <div class="day-card-header">
+        <div class="day-number phase1-num">15</div>
+        <div class="day-title-block">
+          <div class="day-title">Phase 1 Review & Assessment</div>
+          <div class="day-title-te">పరీక్ష — అక్షరమాల సంపూర్ణం</div>
+        </div>
+        <div class="day-check" id="chk-15" onclick="markDone(event,15)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">🏆 Milestone: Script Mastery!</div>
+          <div class="lesson-text">By today you should be able to: read all 16 vowels, all 36 consonants, vowel sign combinations (guninthalu), basic vattulu, numbers 1-100, and simple 2-3 syllable words.</div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Self Test — Write from Memory</div>
+          <div class="exercise-box">
+            <h4>Without looking, write in Telugu script:</h4>
+            <div class="exercise-item">All 16 vowels in order</div>
+            <div class="exercise-item">All 5 groups of consonants (25 total)</div>
+            <div class="exercise-item">"ka" with each vowel sign (క గుణింతం)</div>
+            <div class="exercise-item">Numbers 1 to 10 in Telugu words</div>
+            <div class="exercise-item">10 words you remember from this week</div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">🎯 Moving Forward</div>
+          <div class="tip-box">Starting Day 16, we focus on VOCABULARY and GRAMMAR — building sentences. Keep a dedicated notebook with all alphabets written on the first 3 pages for quick reference!</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end days-grid phase1 -->
+</div><!-- end phase1 -->
+
+<!-- ===== PHASE 2 ===== -->
+<div id="phase2" class="phase-section">
+  <div class="phase-header phase2-bg">
+    <h2>📝 Phase 2: పదాలు & వాక్యాలు</h2>
+    <div class="phase-telugu">Padālu & Vākyālu — Words & Sentences</div>
+    <p>Days 16–30 | Build vocabulary, learn grammar patterns, and start speaking in full sentences.</p>
+  </div>
+
+  <div class="days-grid">
+
+    <!-- DAY 16 -->
+    <div class="day-card" id="card-16" onclick="toggleCard(16)">
+      <div class="day-card-header">
+        <div class="day-number phase2-num">16</div>
+        <div class="day-title-block">
+          <div class="day-title">Body Parts — శరీర భాగాలు</div>
+          <div class="day-title-te">Śarīra Bhāgālu</div>
+        </div>
+        <div class="day-check" id="chk-16" onclick="markDone(event,16)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Body Parts Vocabulary</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Transliteration</th><th>English</th></tr>
+            <tr><td>తల</td><td>tala</td><td>Head</td></tr>
+            <tr><td>కళ్ళు</td><td>kaḷḷu</td><td>Eyes</td></tr>
+            <tr><td>చెవులు</td><td>chevulu</td><td>Ears</td></tr>
+            <tr><td>ముక్కు</td><td>mukku</td><td>Nose</td></tr>
+            <tr><td>నోరు</td><td>nōru</td><td>Mouth</td></tr>
+            <tr><td>చేయి</td><td>chēyi</td><td>Hand</td></tr>
+            <tr><td>కాలు</td><td>kālu</td><td>Leg / Foot</td></tr>
+            <tr><td>వేళ్ళు</td><td>vēḷḷu</td><td>Fingers</td></tr>
+            <tr><td>పొట్ట</td><td>poṭṭa</td><td>Stomach</td></tr>
+            <tr><td>వీపు</td><td>vīpu</td><td>Back</td></tr>
+            <tr><td>గుండె</td><td>guṇḍe</td><td>Heart</td></tr>
+            <tr><td>మెడ</td><td>meḍa</td><td>Neck</td></tr>
+          </table>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">🗣️ Practice Sentences</div>
+          <div class="passage-box">
+            నా తల నొప్పిగా ఉంది.
+            <div class="passage-translation">My head is aching. (Nā tala noppigā undi.)</div>
+            నా చేయి బలంగా ఉంది.
+            <div class="passage-translation">My hand is strong. (Nā chēyi balamgā undi.)</div>
+          </div>
+          <div class="tip-box">"నా" = "my", "ఉంది" = "is/are" (for objects/things). These are two of the most common words in Telugu!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 17 -->
+    <div class="day-card" id="card-17" onclick="toggleCard(17)">
+      <div class="day-card-header">
+        <div class="day-number phase2-num">17</div>
+        <div class="day-title-block">
+          <div class="day-title">Colors & Adjectives — రంగులు</div>
+          <div class="day-title-te">రంగులు మరియు విశేషణాలు</div>
+        </div>
+        <div class="day-check" id="chk-17" onclick="markDone(event,17)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">🎨 Colors — రంగులు</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Sound</th><th>Color</th></tr>
+            <tr><td>ఎరుపు</td><td>erupu</td><td>Red</td></tr>
+            <tr><td>నీలం</td><td>nīlam</td><td>Blue</td></tr>
+            <tr><td>పచ్చ</td><td>paccha</td><td>Green</td></tr>
+            <tr><td>పసుపు</td><td>pasupa</td><td>Yellow (turmeric)</td></tr>
+            <tr><td>నలుపు</td><td>nalupu</td><td>Black</td></tr>
+            <tr><td>తెలుపు</td><td>telupu</td><td>White</td></tr>
+            <tr><td>నారింజ</td><td>nāriñja</td><td>Orange</td></tr>
+            <tr><td>గులాబి</td><td>gulābi</td><td>Pink</td></tr>
+            <tr><td>ఊదా</td><td>ūdā</td><td>Purple</td></tr>
+            <tr><td>గోధుమ</td><td>gōdhuma</td><td>Brown</td></tr>
+          </table>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">🗣️ Sentences with Colors</div>
+          <div class="passage-box">
+            ఆకాశం నీలంగా ఉంది.
+            <div class="passage-translation">The sky is blue. (Ākāśam nīlamgā undi.)</div>
+            ఆ పువ్వు ఎరుపు రంగులో ఉంది.
+            <div class="passage-translation">That flower is red in color. (Ā puvvu erupu rangulō undi.)</div>
+          </div>
+          <div class="tip-box">Add "-గా" (gā) after a color/adjective to say "is [color]". ఎరుపు = red; ఎరుపుగా = "reddish / in red".</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 18 -->
+    <div class="day-card" id="card-18" onclick="toggleCard(18)">
+      <div class="day-card-header">
+        <div class="day-number phase2-num">18</div>
+        <div class="day-title-block">
+          <div class="day-title">Days, Months & Time — వారాలు, నెలలు</div>
+          <div class="day-title-te">వారాలు | నెలలు | సమయం</div>
+        </div>
+        <div class="day-check" id="chk-18" onclick="markDone(event,18)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📅 Days of the Week — వారాలు</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Transliteration</th><th>Day</th></tr>
+            <tr><td>ఆదివారం</td><td>ādivāram</td><td>Sunday</td></tr>
+            <tr><td>సోమవారం</td><td>sōmavāram</td><td>Monday</td></tr>
+            <tr><td>మంగళవారం</td><td>maṅgaḷavāram</td><td>Tuesday</td></tr>
+            <tr><td>బుధవారం</td><td>budhavāram</td><td>Wednesday</td></tr>
+            <tr><td>గురువారం</td><td>guruvāram</td><td>Thursday</td></tr>
+            <tr><td>శుక్రవారం</td><td>śukravāram</td><td>Friday</td></tr>
+            <tr><td>శనివారం</td><td>śanivāram</td><td>Saturday</td></tr>
+          </table>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📆 Months — నెలలు (Telugu Calendar)</div>
+          <div class="ref-strip">
+            <div class="ref-chip"><span>చైత్రం</span>Mar-Apr</div>
+            <div class="ref-chip"><span>వైశాఖం</span>Apr-May</div>
+            <div class="ref-chip"><span>జ్యేష్ఠం</span>May-Jun</div>
+            <div class="ref-chip"><span>ఆషాఢం</span>Jun-Jul</div>
+            <div class="ref-chip"><span>శ్రావణం</span>Jul-Aug</div>
+            <div class="ref-chip"><span>భాద్రపదం</span>Aug-Sep</div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">⏰ Time Words</div>
+          <div class="ref-strip">
+            <div class="ref-chip"><span>ఉదయం</span>Morning</div>
+            <div class="ref-chip"><span>మధ్యాహ్నం</span>Afternoon</div>
+            <div class="ref-chip"><span>సాయంత్రం</span>Evening</div>
+            <div class="ref-chip"><span>రాత్రి</span>Night</div>
+            <div class="ref-chip"><span>నేడు</span>Today</div>
+            <div class="ref-chip"><span>నిన్న</span>Yesterday</div>
+            <div class="ref-chip"><span>రేపు</span>Tomorrow</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 19 -->
+    <div class="day-card" id="card-19" onclick="toggleCard(19)">
+      <div class="day-card-header">
+        <div class="day-number phase2-num">19</div>
+        <div class="day-title-block">
+          <div class="day-title">Family Relations — కుటుంబం</div>
+          <div class="day-title-te">కుటుంబ సంబంధాలు</div>
+        </div>
+        <div class="day-check" id="chk-19" onclick="markDone(event,19)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">👨‍👩‍👧 Family Vocabulary — కుటుంబ పదాలు</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Sound</th><th>Relation</th></tr>
+            <tr><td>తండ్రి</td><td>tandri</td><td>Father</td></tr>
+            <tr><td>తల్లి</td><td>talli</td><td>Mother</td></tr>
+            <tr><td>అన్న</td><td>anna</td><td>Elder brother</td></tr>
+            <tr><td>అక్క</td><td>akka</td><td>Elder sister</td></tr>
+            <tr><td>తమ్ముడు</td><td>tammuḍu</td><td>Younger brother</td></tr>
+            <tr><td>చెల్లి</td><td>chelli</td><td>Younger sister</td></tr>
+            <tr><td>తాత</td><td>tāta</td><td>Grandfather</td></tr>
+            <tr><td>అమ్మమ్మ</td><td>ammamma</td><td>Grandmother (maternal)</td></tr>
+            <tr><td>మేనత్త</td><td>mēnatta</td><td>Paternal aunt</td></tr>
+            <tr><td>మేనమామ</td><td>mēnamāma</td><td>Maternal uncle</td></tr>
+            <tr><td>భర్త</td><td>bharta</td><td>Husband</td></tr>
+            <tr><td>భార్య</td><td>bhārya</td><td>Wife</td></tr>
+          </table>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">🗣️ Introduce Your Family</div>
+          <div class="passage-box">
+            మా తండ్రి పేరు రమేష్.
+            <div class="passage-translation">My father's name is Ramesh. (Mā tandri pēru Ramēś.)</div>
+            మా కుటుంబంలో నలుగురు ఉన్నారు.
+            <div class="passage-translation">There are four people in our family. (Mā kuṭumbamlo naluguru unnāru.)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 20 -->
+    <div class="day-card" id="card-20" onclick="toggleCard(20)">
+      <div class="day-card-header">
+        <div class="day-number phase2-num">20</div>
+        <div class="day-title-block">
+          <div class="day-title">Food & Nature — ఆహారం & ప్రకృతి</div>
+          <div class="day-title-te">ఆహారం, కూరగాయలు, పండ్లు</div>
+        </div>
+        <div class="day-check" id="chk-20" onclick="markDone(event,20)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">🍚 Food Vocabulary</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Sound</th><th>English</th></tr>
+            <tr><td>అన్నం</td><td>annam</td><td>Rice (cooked)</td></tr>
+            <tr><td>రొట్టె</td><td>rotṭe</td><td>Bread / Roti</td></tr>
+            <tr><td>పప్పు</td><td>pappu</td><td>Dal / Lentils</td></tr>
+            <tr><td>నీళ్ళు</td><td>nīḷḷu</td><td>Water</td></tr>
+            <tr><td>పాలు</td><td>pālu</td><td>Milk</td></tr>
+            <tr><td>పండు</td><td>paṇḍu</td><td>Fruit</td></tr>
+            <tr><td>కూర</td><td>kūra</td><td>Vegetable dish / Curry</td></tr>
+            <tr><td>మిరపకాయ</td><td>mirapakāya</td><td>Chilli</td></tr>
+            <tr><td>టమాటా</td><td>ṭamāṭā</td><td>Tomato</td></tr>
+            <tr><td>అరటి</td><td>araṭi</td><td>Banana</td></tr>
+          </table>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">🌱 Nature Words — ప్రకృతి</div>
+          <div class="ref-strip">
+            <div class="ref-chip"><span>చెట్టు</span>Tree</div>
+            <div class="ref-chip"><span>ఆకాశం</span>Sky</div>
+            <div class="ref-chip"><span>సూర్యుడు</span>Sun</div>
+            <div class="ref-chip"><span>చంద్రుడు</span>Moon</div>
+            <div class="ref-chip"><span>నక్షత్రం</span>Star</div>
+            <div class="ref-chip"><span>నది</span>River</div>
+            <div class="ref-chip"><span>కొండ</span>Hill</div>
+            <div class="ref-chip"><span>వర్షం</span>Rain</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 21 -->
+    <div class="day-card" id="card-21" onclick="toggleCard(21)">
+      <div class="day-card-header">
+        <div class="day-number phase2-num">21</div>
+        <div class="day-title-block">
+          <div class="day-title">Sentence Structure — వాక్య నిర్మాణం</div>
+          <div class="day-title-te">Telugu: Subject + Object + Verb (SOV)</div>
+        </div>
+        <div class="day-check" id="chk-21" onclick="markDone(event,21)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 Telugu Word Order: SOV (not SVO like English!)</div>
+          <div class="grammar-box">
+            <h4>English: I (S) + eat (V) + rice (O)</h4>
+            <div class="lesson-text">Telugu: నేను (S) + అన్నం (O) + తింటాను (V)</div>
+            <div class="lesson-text" style="font-style:italic;margin-top:0.4rem">Nēnu + annam + tiṇṭānu = "I rice eat"</div>
+          </div>
+          <div class="tip-box">In Telugu, the VERB always comes LAST. This is the single most important grammar rule!</div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Simple Sentences</div>
+          <table class="vocab-table">
+            <tr><th>Telugu Sentence</th><th>English</th></tr>
+            <tr><td>నేను స్కూలుకు వెళ్తాను.</td><td>I go to school.</td></tr>
+            <tr><td>అతడు పుస్తకం చదువుతాడు.</td><td>He reads a book.</td></tr>
+            <tr><td>ఆమె పాడుతుంది.</td><td>She sings.</td></tr>
+            <tr><td>పిల్లలు ఆడుతున్నారు.</td><td>Children are playing.</td></tr>
+          </table>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Key Pronouns — సర్వనామాలు</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Sound</th><th>Meaning</th></tr>
+            <tr><td>నేను</td><td>nēnu</td><td>I / Me</td></tr>
+            <tr><td>నువ్వు</td><td>nuvvu</td><td>You (informal)</td></tr>
+            <tr><td>మీరు</td><td>mīru</td><td>You (respectful/plural)</td></tr>
+            <tr><td>అతడు</td><td>ataḍu</td><td>He</td></tr>
+            <tr><td>ఆమె</td><td>āme</td><td>She</td></tr>
+            <tr><td>మేము</td><td>mēmu</td><td>We (exclusive)</td></tr>
+            <tr><td>వారు</td><td>vāru</td><td>They (respectful)</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 22 -->
+    <div class="day-card" id="card-22" onclick="toggleCard(22)">
+      <div class="day-card-header">
+        <div class="day-number phase2-num">22</div>
+        <div class="day-title-block">
+          <div class="day-title">Present Tense — వర్తమాన కాలం</div>
+          <div class="day-title-te">వర్తమాన కాలం</div>
+        </div>
+        <div class="day-check" id="chk-22" onclick="markDone(event,22)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 Present Tense Formation</div>
+          <div class="grammar-box">
+            <h4>Verb root + తున్నా/తున్నాడు/తున్నారు</h4>
+            <div class="lesson-text">చద‌ువు (to study) → నేను చదువుతున్నాను (I am studying)</div>
+            <div class="lesson-text">తిను (to eat) → అతడు తింటున్నాడు (He is eating)</div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Present Tense — Common Verbs</div>
+          <table class="vocab-table">
+            <tr><th>Verb</th><th>I (నేను)</th><th>He (అతడు)</th><th>They (వారు)</th></tr>
+            <tr><td>చదువు (read)</td><td>చదువుతున్నాను</td><td>చదువుతున్నాడు</td><td>చదువుతున్నారు</td></tr>
+            <tr><td>తిను (eat)</td><td>తింటున్నాను</td><td>తింటున్నాడు</td><td>తింటున్నారు</td></tr>
+            <tr><td>వెళ్ళు (go)</td><td>వెళ్తున్నాను</td><td>వెళ్తున్నాడు</td><td>వెళ్తున్నారు</td></tr>
+            <tr><td>వచ్చు (come)</td><td>వస్తున్నాను</td><td>వస్తున్నాడు</td><td>వస్తున్నారు</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 23 -->
+    <div class="day-card" id="card-23" onclick="toggleCard(23)">
+      <div class="day-card-header">
+        <div class="day-number phase2-num">23</div>
+        <div class="day-title-block">
+          <div class="day-title">Past Tense — భూతకాలం</div>
+          <div class="day-title-te">భూతకాలం (Bhūtakālam)</div>
+        </div>
+        <div class="day-check" id="chk-23" onclick="markDone(event,23)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 Past Tense — How to form it</div>
+          <div class="grammar-box">
+            <h4>Verb root + ాడు/ింది/ారు (past markers)</h4>
+            <div class="lesson-text">వెళ్ళు → వెళ్ళాడు (He went) / వెళ్ళింది (She went / It went)</div>
+            <div class="lesson-text">చదువు → చదివాడు (He read/studied)</div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Past Tense Examples</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Transliteration</th><th>Meaning</th></tr>
+            <tr><td>నేను పాఠశాలకు వెళ్ళాను.</td><td>Nēnu pāṭhaśālaku veḷḷānu.</td><td>I went to school.</td></tr>
+            <tr><td>అతడు అన్నం తిన్నాడు.</td><td>Ataḍu annam tinnāḍu.</td><td>He ate rice.</td></tr>
+            <tr><td>వారు పాట పాడారు.</td><td>Vāru pāṭa pāḍāru.</td><td>They sang a song.</td></tr>
+            <tr><td>ఆమె పుస్తకం చదివింది.</td><td>Āme pustakam cadivindi.</td><td>She read a book.</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 24 -->
+    <div class="day-card" id="card-24" onclick="toggleCard(24)">
+      <div class="day-card-header">
+        <div class="day-number phase2-num">24</div>
+        <div class="day-title-block">
+          <div class="day-title">Future Tense — భవిష్యత్కాలం</div>
+          <div class="day-title-te">భవిష్యత్కాలం (Bhaviṣyatkālam)</div>
+        </div>
+        <div class="day-check" id="chk-24" onclick="markDone(event,24)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 Future Tense — Key pattern</div>
+          <div class="grammar-box">
+            <h4>Verb root + తాను/తాడు/తారు (future markers)</h4>
+            <div class="lesson-text">వెళ్ళు → నేను వెళ్తాను (I will go)</div>
+            <div class="lesson-text">రా → అతడు వస్తాడు (He will come)</div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Future Sentences</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Meaning</th></tr>
+            <tr><td>నేను రేపు స్కూలుకు వెళ్తాను.</td><td>I will go to school tomorrow.</td></tr>
+            <tr><td>వారు పరీక్ష రాస్తారు.</td><td>They will write the exam.</td></tr>
+            <tr><td>ఆమె పాట పాడుతుంది.</td><td>She will sing a song.</td></tr>
+          </table>
+          <div class="tip-box">Now you know all THREE tenses! Past: వెళ్ళాను | Present: వెళ్తున్నాను | Future: వెళ్తాను</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 25 -->
+    <div class="day-card" id="card-25" onclick="toggleCard(25)">
+      <div class="day-card-header">
+        <div class="day-number phase2-num">25</div>
+        <div class="day-title-block">
+          <div class="day-title">Question Words — ప్రశ్నవాక్యాలు</div>
+          <div class="day-title-te">ఎవరు? ఏమి? ఎక్కడ? ఎప్పుడు?</div>
+        </div>
+        <div class="day-check" id="chk-25" onclick="markDone(event,25)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">❓ Question Words — ప్రశ్న పదాలు</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Sound</th><th>Meaning</th></tr>
+            <tr><td>ఏమి / ఏం</td><td>ēmi</td><td>What?</td></tr>
+            <tr><td>ఎవరు</td><td>evaru</td><td>Who?</td></tr>
+            <tr><td>ఎక్కడ</td><td>ekkaḍa</td><td>Where?</td></tr>
+            <tr><td>ఎప్పుడు</td><td>eppuḍu</td><td>When?</td></tr>
+            <tr><td>ఎందుకు</td><td>endu ku</td><td>Why?</td></tr>
+            <tr><td>ఎలా</td><td>elā</td><td>How?</td></tr>
+            <tr><td>ఎంత</td><td>enta</td><td>How much?</td></tr>
+            <tr><td>ఏది</td><td>ēdi</td><td>Which one?</td></tr>
+          </table>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">🗣️ Sample Q&A</div>
+          <div class="passage-box">
+            నీ పేరు ఏమిటి? — మా పేరు రాహుల్.
+            <div class="passage-translation">What is your name? — My name is Rahul.</div>
+            నువ్వు ఎక్కడ ఉంటావు? — నేను హైదరాబాద్‌లో ఉంటాను.
+            <div class="passage-translation">Where do you live? — I live in Hyderabad.</div>
+            పరీక్ష ఎప్పుడు? — రేపు.
+            <div class="passage-translation">When is the exam? — Tomorrow.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 26 -->
+    <div class="day-card" id="card-26" onclick="toggleCard(26)">
+      <div class="day-card-header">
+        <div class="day-number phase2-num">26</div>
+        <div class="day-title-block">
+          <div class="day-title">Negation — నిరాకరణ వాక్యాలు</div>
+          <div class="day-title-te">లేదు | వద్దు | కాదు</div>
+        </div>
+        <div class="day-check" id="chk-26" onclick="markDone(event,26)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 Three Ways to Say "No" in Telugu</div>
+          <div class="grammar-box">
+            <h4>లేదు (lēdu) — does not exist / is not there</h4>
+            <div class="lesson-text">పుస్తకం లేదు. = The book is not there.</div>
+          </div>
+          <div class="grammar-box">
+            <h4>కాదు (kādu) — is not (identity negation)</h4>
+            <div class="lesson-text">ఇది పుస్తకం కాదు. = This is not a book.</div>
+          </div>
+          <div class="grammar-box">
+            <h4>వద్దు (vaddu) — don't / should not (for commands)</h4>
+            <div class="lesson-text">వెళ్ళవద్దు. = Don't go. / అలా చేయవద్దు. = Don't do that.</div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Negation in Sentences</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Meaning</th></tr>
+            <tr><td>నేను తెలుగు నేర్చుకోలేదు.</td><td>I did not learn Telugu (yet).</td></tr>
+            <tr><td>అతడు ఇంట్లో లేడు.</td><td>He is not at home.</td></tr>
+            <tr><td>ఇది సరికాదు.</td><td>This is not correct.</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 27-30: Brief cards -->
+    <div class="day-card" id="card-27" onclick="toggleCard(27)">
+      <div class="day-card-header">
+        <div class="day-number phase2-num">27</div>
+        <div class="day-title-block">
+          <div class="day-title">Postpositions — విభక్తులు</div>
+          <div class="day-title-te">లో, కు, తో, వద్ద, నుండి</div>
+        </div>
+        <div class="day-check" id="chk-27" onclick="markDone(event,27)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 Telugu uses Postpositions (after the noun, not before like English)</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Sound</th><th>Meaning / Use</th></tr>
+            <tr><td>...లో</td><td>-lō</td><td>in / inside ("ఇంట్లో" = in the house)</td></tr>
+            <tr><td>...కు / కి</td><td>-ku/-ki</td><td>to / towards ("స్కూలుకు" = to school)</td></tr>
+            <tr><td>...తో</td><td>-tō</td><td>with ("అతనితో" = with him)</td></tr>
+            <tr><td>...నుండి</td><td>-nuṇḍi</td><td>from ("ఇంటి నుండి" = from home)</td></tr>
+            <tr><td>...వద్ద</td><td>-vadda</td><td>near / at ("నా వద్ద" = with me)</td></tr>
+            <tr><td>...పై</td><td>-pai</td><td>on top of ("బల్లపై" = on the table)</td></tr>
+          </table>
+          <div class="tip-box">Instead of "in the school" → Telugu says "స్కూలు + లో" (school-in). The word comes AFTER the noun!</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card" id="card-28" onclick="toggleCard(28)">
+      <div class="day-card-header">
+        <div class="day-number phase2-num">28</div>
+        <div class="day-title-block">
+          <div class="day-title">Conversations — సంభాషణ</div>
+          <div class="day-title-te">రోజువారీ సంభాషణ</div>
+        </div>
+        <div class="day-check" id="chk-28" onclick="markDone(event,28)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">🗣️ Daily Conversations — రోజువారీ మాటలు</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Meaning</th></tr>
+            <tr><td>నమస్కారం!</td><td>Hello! / Greetings!</td></tr>
+            <tr><td>ఎలా ఉన్నారు?</td><td>How are you? (formal)</td></tr>
+            <tr><td>బాగున్నాను, ధన్యవాదాలు.</td><td>I am fine, thank you.</td></tr>
+            <tr><td>మీ పేరు ఏమిటి?</td><td>What is your name?</td></tr>
+            <tr><td>నా పేరు ______.</td><td>My name is ______.</td></tr>
+            <tr><td>సరే, మళ్ళీ కలుద్దాం.</td><td>Okay, let's meet again.</td></tr>
+            <tr><td>అర్థమైందా?</td><td>Did you understand?</td></tr>
+            <tr><td>మళ్ళీ చెప్పండి.</td><td>Please say it again.</td></tr>
+            <tr><td>క్షమించండి.</td><td>Excuse me / Sorry.</td></tr>
+            <tr><td>వందనాలు!</td><td>Best wishes! / Thank you!</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card" id="card-29" onclick="toggleCard(29)">
+      <div class="day-card-header">
+        <div class="day-number phase2-num">29</div>
+        <div class="day-title-block">
+          <div class="day-title">First Paragraph Reading</div>
+          <div class="day-title-te">మొదటి పేరా చదువు</div>
+        </div>
+        <div class="day-check" id="chk-29" onclick="markDone(event,29)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 Read Aloud — My School (నా పాఠశాల)</div>
+          <div class="passage-box">
+            నా పేరు రాహుల్. నేను తొమ్మిదవ తరగతిలో చదువుతున్నాను. మా పాఠశాల చాలా పెద్దది. అందులో వంద మంది విద్యార్థులు ఉన్నారు. మా తెలుగు టీచర్ చాలా బాగా చెప్తారు. నేను తెలుగు నేర్చుకోవాలని ఉంది.
+            <div class="passage-translation">
+              My name is Rahul. I am studying in 9th class. Our school is very big. There are 100 students in it. Our Telugu teacher teaches very well. I want to learn Telugu.
+            </div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Comprehension Questions</div>
+          <div class="exercise-box">
+            <h4>Answer in Telugu:</h4>
+            <div class="exercise-item">రాహుల్ ఏ తరగతిలో చదువుతున్నాడు? (Which class is Rahul in?)</div>
+            <div class="exercise-item">పాఠశాలలో ఎందరు విద్యార్థులు ఉన్నారు? (How many students are there?)</div>
+            <div class="exercise-item">రాహుల్ ఏమి నేర్చుకోవాలని అనుకుంటున్నాడు? (What does Rahul want to learn?)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card" id="card-30" onclick="toggleCard(30)">
+      <div class="day-card-header">
+        <div class="day-number phase2-num">30</div>
+        <div class="day-title-block">
+          <div class="day-title">Phase 2 Review & Writing</div>
+          <div class="day-title-te">పరీక్ష — పదాలు & వాక్యాలు</div>
+        </div>
+        <div class="day-check" id="chk-30" onclick="markDone(event,30)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">🏆 Half-way Milestone! 30 Days Done!</div>
+          <div class="lesson-text">You can now read and write the full Telugu script, know 100+ vocabulary words, and form sentences in all three tenses. You're ready for literature!</div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">✍️ Write a Short Paragraph about Yourself</div>
+          <div class="exercise-box">
+            <h4>Write 5 sentences in Telugu about yourself:</h4>
+            <div class="exercise-item">Your name: నా పేరు ___.</div>
+            <div class="exercise-item">Your class: నేను __వ తరగతిలో చదువుతున్నాను.</div>
+            <div class="exercise-item">Your family: మా కుటుంబంలో ___.</div>
+            <div class="exercise-item">Your hobby: నాకు ___ ఇష్టం.</div>
+            <div class="exercise-item">Your goal: నేను ___ కావాలని ఉంది.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== PHASE 3 ===== -->
+<div id="phase3" class="phase-section">
+  <div class="phase-header phase3-bg">
+    <h2>📖 Phase 3: పద్యాలు & గద్యాలు</h2>
+    <div class="phase-telugu">Poetry, Prose & Grammar</div>
+    <p>Days 31–45 | Read prose passages, learn classical poetry, and study core grammar (Vyakaranam).</p>
+  </div>
+
+  <div class="days-grid">
+
+    <!-- DAY 31 -->
+    <div class="day-card" id="card-31" onclick="toggleCard(31)">
+      <div class="day-card-header">
+        <div class="day-number phase3-num">31</div>
+        <div class="day-title-block">
+          <div class="day-title">Prose Reading — My Nation</div>
+          <div class="day-title-te">గద్యం — మన దేశం</div>
+        </div>
+        <div class="day-check" id="chk-31" onclick="markDone(event,31)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 Prose Passage — మన దేశం (Our Country)</div>
+          <div class="passage-box">
+            భారతదేశం మన మాతృభూమి. ఇది ఆసియా ఖండంలో ఉంది. భారతదేశం చాలా విశాలమైన దేశం. ఇక్కడ వివిధ మతాలు, భాషలు, సంస్కృతులు ఉన్నాయి. "వైవిధ్యంలో ఏకత్వం" మన దేశ ప్రత్యేకత. అందుకే భారతదేశం ప్రపంచంలో ప్రసిద్ధి చెందింది.
+            <div class="passage-translation">
+              India is our motherland. It is in the continent of Asia. India is a very vast country. Here there are various religions, languages, and cultures. "Unity in diversity" is our country's specialty. That is why India is famous in the world.
+            </div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 New Vocabulary from Passage</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Meaning</th></tr>
+            <tr><td>మాతృభూమి</td><td>Motherland</td></tr>
+            <tr><td>విశాలమైన</td><td>Vast / Wide</td></tr>
+            <tr><td>వైవిధ్యం</td><td>Diversity</td></tr>
+            <tr><td>ఏకత్వం</td><td>Unity</td></tr>
+            <tr><td>ప్రత్యేకత</td><td>Specialty / Uniqueness</td></tr>
+            <tr><td>ప్రసిద్ధి</td><td>Fame / Renown</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 32 -->
+    <div class="day-card" id="card-32" onclick="toggleCard(32)">
+      <div class="day-card-header">
+        <div class="day-number phase3-num">32</div>
+        <div class="day-title-block">
+          <div class="day-title">Prose — Telugu Language & Literature</div>
+          <div class="day-title-te">తెలుగు భాష గొప్పతనం</div>
+        </div>
+        <div class="day-check" id="chk-32" onclick="markDone(event,32)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 Passage — తెలుగు భాష</div>
+          <div class="passage-box">
+            తెలుగు భాష చాలా పురాతనమైనది. నన్నయ భట్టారకుడు తెలుగు సాహిత్యంలో ఆదికవి. ఆయన మహాభారతాన్ని తెలుగులో అనువదించారు. తిక్కన, ఎర్రాప్రగడలు కూడా గొప్ప కవులు. ఈ ముగ్గురినీ "కవిత్రయం" అంటారు.
+            <div class="passage-translation">
+              Telugu is a very ancient language. Nannaya Bhattarakudu is the first poet (Adi Kavi) of Telugu literature. He translated the Mahabharata into Telugu. Tikkana and Errapragada are also great poets. These three are called "Kavitrayam" (The Trinity of Poets).
+            </div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">🌟 Important Telugu Literary Terms</div>
+          <table class="vocab-table">
+            <tr><th>Term</th><th>Meaning</th></tr>
+            <tr><td>ఆదికవి</td><td>First / Founding Poet</td></tr>
+            <tr><td>కవిత్రయం</td><td>The Three Poets (Nannaya, Tikkana, Errapragada)</td></tr>
+            <tr><td>సాహిత్యం</td><td>Literature</td></tr>
+            <tr><td>అనువాదం</td><td>Translation</td></tr>
+            <tr><td>పద్యం</td><td>Poem / Verse</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 33 -->
+    <div class="day-card" id="card-33" onclick="toggleCard(33)">
+      <div class="day-card-header">
+        <div class="day-number phase3-num">33</div>
+        <div class="day-title-block">
+          <div class="day-title">First Telugu Poem — Sumati Satakam</div>
+          <div class="day-title-te">సుమతీ శతకం — పద్యం</div>
+        </div>
+        <div class="day-check" id="chk-33" onclick="markDone(event,33)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 About Sumati Satakam</div>
+          <div class="lesson-text">Sumati Satakam by Baddena is a collection of 100 moral Telugu poems (satakam = century of verses). It teaches life lessons with simple, memorable rhymes. This is one of the first texts in the 9th class curriculum!</div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">🎵 Famous Sumati Satakam Verse</div>
+          <div class="poem-box">
+            అప్పు చేసి నెప్పులపాలు కావలదు,
+            కప్పదు నే ని సెప్పెద వినుమా,
+            తప్పకు సుమ్మి సుమతీ!
+            <div class="poem-meaning">
+              Don't borrow and become prey to troubles. I tell you what is not to be done — do not do wrong, O wise one! (Sumati = a wise/virtuous person)
+            </div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Vocabulary from the Verse</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Meaning</th></tr>
+            <tr><td>అప్పు</td><td>Debt / Loan</td></tr>
+            <tr><td>నెప్పులు</td><td>Troubles / Pains</td></tr>
+            <tr><td>వినుమా</td><td>Listen! (imperative)</td></tr>
+            <tr><td>తప్పు</td><td>Mistake / Wrong action</td></tr>
+            <tr><td>సుమతీ</td><td>O wise one! (vocative)</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 34 -->
+    <div class="day-card" id="card-34" onclick="toggleCard(34)">
+      <div class="day-card-header">
+        <div class="day-number phase3-num">34</div>
+        <div class="day-title-block">
+          <div class="day-title">Vemana Satakam Poems</div>
+          <div class="day-title-te">వేమన శతకం</div>
+        </div>
+        <div class="day-check" id="chk-34" onclick="markDone(event,34)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 About Vemana</div>
+          <div class="lesson-text">Yogi Vemana (17th century) wrote profound philosophical poems in simple Telugu. His "Vemana Satakam" is world-renowned. Each poem ends with "Viswadabhirama Vinura Vema!" These are must-know poems in the 9th grade curriculum!</div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">🎵 Famous Vemana Verse</div>
+          <div class="poem-box">
+            చదువు కొన్ని కలడు చదివించుకొన్ని కలడు,
+            తేడా చదువు తెలివికలడు,
+            విశ్వదాభిరామ వినుర వేమ!
+            <div class="poem-meaning">
+              Some know how to study, some know how to teach. But real intelligence lies in knowing the right kind of knowledge! — Vema!
+            </div>
+          </div>
+          <div class="poem-box">
+            ఉప్పు కప్పురంబు నొక్కపోలికనుండు,
+            చూడచూడ రుచుల జాడ వేరు,
+            విశ్వదాభిరామ వినుర వేమ!
+            <div class="poem-meaning">
+              Salt and camphor look alike to the eye, but when tasted, their flavors are entirely different. (Appearances can be deceiving.)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 35 -->
+    <div class="day-card" id="card-35" onclick="toggleCard(35)">
+      <div class="day-card-header">
+        <div class="day-number phase3-num">35</div>
+        <div class="day-title-block">
+          <div class="day-title">Story Reading — Short Story</div>
+          <div class="day-title-te">కథ — అక్కపచ్చ చిలకలు</div>
+        </div>
+        <div class="day-check" id="chk-35" onclick="markDone(event,35)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 Short Story — The Truthful Child</div>
+          <div class="passage-box">
+            ఒక అడవిలో ఒక పేద కట్టెలు కొట్టేవాడు ఉండేవాడు. ఒక రోజు అతని గొడ్డలి నదిలో పడిపోయింది. అతను ఏడ్వడం మొదలుపెట్టాడు. అప్పుడు నదిలో నుండి ఒక దేవత వచ్చింది. ఆమె అడిగింది: "నీ గొడ్డలి బంగారుదా?"  అతను చెప్పాడు: "కాదు, నా గొడ్డలి ఇనుప గొడ్డలి." ఆమె సంతోషించి అతనికి బంగారు, వెండి, ఇనుప మూడు గొడ్డళ్ళు ఇచ్చింది. నిజాయితీకి మంచి ఫలితం దక్కింది.
+            <div class="passage-translation">
+              In a forest there lived a poor woodcutter. One day his axe fell into a river. He began to cry. Then a goddess rose from the river and asked: "Is your axe of gold?" He replied: "No, my axe is an iron axe." She was pleased and gave him all three axes — gold, silver, and iron. Honesty brought a good reward.
+            </div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Moral — నీతి</div>
+          <div class="telugu-box">
+            <span class="te-word">నిజాయితీయే గొప్ప ధనం.</span>
+            <span class="te-translit">Nijāyitīyē goppa dhanam.</span>
+            <span class="te-meaning">Honesty itself is great wealth.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 36 — Grammar: Sandhulu -->
+    <div class="day-card" id="card-36" onclick="toggleCard(36)">
+      <div class="day-card-header">
+        <div class="day-number phase3-num">36</div>
+        <div class="day-title-block">
+          <div class="day-title">Grammar — Sandhulu (Euphonic Joins)</div>
+          <div class="day-title-te">సంధులు — వ్యాకరణం</div>
+        </div>
+        <div class="day-check" id="chk-36" onclick="markDone(event,36)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 What is a Sandhi (సంధి)?</div>
+          <div class="lesson-text">When two words come together, their sounds merge. This is called "Sandhi" (సంధి) in Telugu grammar. It is one of the most important grammar topics in the 9th grade exam!</div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Types of Sandhulu with Examples</div>
+          <table class="vocab-table">
+            <tr><th>Sandhi Type</th><th>Example</th><th>Explanation</th></tr>
+            <tr><td>అకార సంధి</td><td>ఇల్లు + అతడు = ఇల్లతడు</td><td>Two 'a' sounds merge</td></tr>
+            <tr><td>ఇకార సంధి</td><td>రామ + ఇది = రామయిది</td><td>'a'+'i' → 'ay'</td></tr>
+            <tr><td>సవర్ణ సంధి</td><td>రామ + ఆలయం = రామాలయం</td><td>Same vowels combine</td></tr>
+            <tr><td>విసర్గ సంధి</td><td>రాజః + ఉగ్రత = రాజోగ్రత</td><td>Visarga changes</td></tr>
+          </table>
+          <div class="tip-box">Remember: Sandhulu happen only in formal/literary Telugu (grandha bhasha), not in everyday spoken Telugu.</div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">✍️ Exercise — Identify the Sandhi</div>
+          <div class="exercise-box">
+            <h4>Split these sandhi words into their original parts:</h4>
+            <div class="exercise-item">పరమాత్మ = పరమ + ఆత్మ</div>
+            <div class="exercise-item">నిజాయితీ = నిజ + ఆయితీ</div>
+            <div class="exercise-item">రాజాజ్ఞ = రాజ + ఆజ్ఞ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 37 — Samasalu -->
+    <div class="day-card" id="card-37" onclick="toggleCard(37)">
+      <div class="day-card-header">
+        <div class="day-number phase3-num">37</div>
+        <div class="day-title-block">
+          <div class="day-title">Grammar — Samasalu (Compound Words)</div>
+          <div class="day-title-te">సమాసాలు — వ్యాకరణం</div>
+        </div>
+        <div class="day-check" id="chk-37" onclick="markDone(event,37)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 What is a Samasa (సమాసం)?</div>
+          <div class="lesson-text">A "Samasa" is when two words combine to form one compound word with a new meaning. Like "school bus" in English — two words forming one concept. Telugu has 6 main types!</div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Main Types of Samasalu</div>
+          <table class="vocab-table">
+            <tr><th>Type</th><th>Telugu Name</th><th>Example</th><th>Meaning</th></tr>
+            <tr><td>Tatpurusha</td><td>తత్పురుష సమాసం</td><td>రాజపుత్రుడు</td><td>Son of a king (king's son)</td></tr>
+            <tr><td>Dvandva</td><td>ద్వంద్వ సమాసం</td><td>తల్లిదండ్రులు</td><td>Mother and father (parents)</td></tr>
+            <tr><td>Bahuvrihi</td><td>బహువ్రీహి సమాసం</td><td>నీలకంఠుడు</td><td>One who has a blue throat (Shiva)</td></tr>
+            <tr><td>Karmadharaya</td><td>కర్మధారయ సమాసం</td><td>మహారాజు</td><td>Great king</td></tr>
+            <tr><td>Dviguva</td><td>ద్విగు సమాసం</td><td>త్రిలోకాలు</td><td>Three worlds</td></tr>
+          </table>
+          <div class="tip-box">The most common in exams are: తత్పురుష, ద్వంద్వ, and బహువ్రీహి. Learn these 3 first!</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 38 — Alankaralu -->
+    <div class="day-card" id="card-38" onclick="toggleCard(38)">
+      <div class="day-card-header">
+        <div class="day-number phase3-num">38</div>
+        <div class="day-title-block">
+          <div class="day-title">Figures of Speech — అలంకారాలు</div>
+          <div class="day-title-te">అలంకారాలు (Alankarālu)</div>
+        </div>
+        <div class="day-check" id="chk-38" onclick="markDone(event,38)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 What are Alankaralu?</div>
+          <div class="lesson-text">Alankaralu (అలంకారాలు) are figures of speech that beautify poetry and prose. They add decoration to language, just like ornaments (alankaram = ornament/decoration) beautify a person.</div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Main Alankaralu</div>
+          <table class="vocab-table">
+            <tr><th>Alankaram</th><th>Type</th><th>Example</th></tr>
+            <tr><td>ఉపమ అలంకారం</td><td>Simile (like/as)</td><td>అతని ముఖం చంద్రుడు వలె ఉంది (His face is like the moon)</td></tr>
+            <tr><td>రూపకాలంకారం</td><td>Metaphor (is)</td><td>జ్ఞానమే వెలుతురు (Knowledge IS light)</td></tr>
+            <tr><td>అనుప్రాస అలంకారం</td><td>Alliteration</td><td>కమల కాంత కలువ కన్నె... (repeated 'k' sound)</td></tr>
+            <tr><td>యమకాలంకారం</td><td>Rhyme/Repetition</td><td>Same sound with different meanings</td></tr>
+            <tr><td>శ్లేషాలంకారం</td><td>Pun/Double meaning</td><td>Word with two meanings simultaneously</td></tr>
+          </table>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 ఉపమ vs రూపకం</div>
+          <div class="grammar-box">
+            <h4>ఉపమ (Simile) uses comparison words: వలె, లాంటి, అట్లు</h4>
+            <div class="lesson-text">మేఘంలాంటి గొంతు = Voice LIKE thunder</div>
+          </div>
+          <div class="grammar-box">
+            <h4>రూపకం (Metaphor) directly equates without comparison words</h4>
+            <div class="lesson-text">జీవితం ఒక నాటకం = Life IS a play</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 39 -->
+    <div class="day-card" id="card-39" onclick="toggleCard(39)">
+      <div class="day-card-header">
+        <div class="day-number phase3-num">39</div>
+        <div class="day-title-block">
+          <div class="day-title">Essay Writing — వ్యాస రచన</div>
+          <div class="day-title-te">వ్యాసం రాయడం — నా ప్రియమైన గురువు</div>
+        </div>
+        <div class="day-check" id="chk-39" onclick="markDone(event,39)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 How to write a Telugu Essay (వ్యాసం)</div>
+          <div class="grammar-box">
+            <h4>Standard Structure:</h4>
+            <div class="lesson-text">1. ముందుమాట (Preface/Introduction) — 2 sentences<br>
+            2. విషయ వివరణ (Main Body) — 4-5 sentences<br>
+            3. ముగింపు (Conclusion) — 1-2 sentences</div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Sample Essay — "నా ప్రియమైన గురువు" (My Favorite Teacher)</div>
+          <div class="passage-box">
+            <strong>ముందుమాట:</strong> గురువు శిష్యుల జీవితాలను మలచే శిల్పి. నా జీవితంలో నా తెలుగు టీచర్ నాకు ఎంతో ప్రీతికరంగా ఉంటారు.
+            <br><br>
+            <strong>విషయం:</strong> ఆయన పేరు శ్రీ రమేష్ బాబు గారు. ఆయన చాలా అనుభవం గలిగిన టీచర్. ఆయన తెలుగు పాఠాలు చాలా ఆసక్తిగా చెప్తారు. ఆయన నుండి నేను అనేక విషయాలు నేర్చుకున్నాను.
+            <br><br>
+            <strong>ముగింపు:</strong> నా గురువు నాకు జ్ఞానజ్యోతి వంటివారు. వారి ఉపదేశాలు నా జీవితాన్ని నడిపిస్తాయి.
+            <div class="passage-translation">
+              A teacher is a sculptor who shapes students' lives. My Telugu teacher is very dear to me... He teaches Telugu lessons very interestingly. I have learned many things from him. My teacher is like a flame of knowledge. Their teachings will guide my life.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 40 -->
+    <div class="day-card" id="card-40" onclick="toggleCard(40)">
+      <div class="day-card-header">
+        <div class="day-number phase3-num">40</div>
+        <div class="day-title-block">
+          <div class="day-title">Letter Writing — లేఖ రచన</div>
+          <div class="day-title-te">అనారోగ్య లేఖ | ప్రార్థనా పత్రం</div>
+        </div>
+        <div class="day-check" id="chk-40" onclick="markDone(event,40)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 Format of a Telugu Formal Letter</div>
+          <div class="grammar-box">
+            <h4>అధికారిక లేఖ నిర్మాణం:</h4>
+            <div class="lesson-text">
+              1. స్థలం, తేది (Place, Date)<br>
+              2. గౌరవనీయులకు (To the respected...) / ప్రధానోపాధ్యాయులవారికి<br>
+              3. విషయం (Subject)<br>
+              4. మహాశయా / అయ్యా (Dear Sir/Madam)<br>
+              5. విషయ వివరణ (Body of letter)<br>
+              6. మీ విధేయుడు (Your obedient)<br>
+              7. సంతకం (Signature)
+            </div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Sample Letter — Leave Application</div>
+          <div class="passage-box">
+            హైదరాబాద్, 01-06-2025
+            <br><br>
+            ప్రధానోపాధ్యాయులవారికి,<br>
+            జ.ని.పా.శాల, హైదరాబాద్.
+            <br><br>
+            విషయం: అనారోగ్యం వల్ల సెలవు మంజూరు చేయవలసినదని.
+            <br><br>
+            అయ్యా,<br>
+            నేను ____________ 9వ తరగతి చదువుతున్నాను. నాకు జ్వరం వచ్చింది. డాక్టర్ విశ్రాంతి తీసుకోమని సలహా ఇచ్చారు. కావున నాకు 2 రోజులు సెలవు మంజూరు చేయవలసినదని మనవి చేసుకుంటున్నాను.
+            <br><br>
+            మీ విధేయ విద్యార్థి,<br>
+            రాహుల్ కుమార్
+            <div class="passage-translation">
+              Hyderabad, 01-06-2025. To the Headmaster, Govt School, Hyderabad. Subject: Request for leave due to illness. Sir, I am studying in 9th class. I have fever. The doctor has advised me to rest. I hereby request 2 days of leave. Your obedient student, Rahul Kumar.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Days 41-45 brief -->
+    <div class="day-card" id="card-41" onclick="toggleCard(41)">
+      <div class="day-card-header">
+        <div class="day-number phase3-num">41</div>
+        <div class="day-title-block">
+          <div class="day-title">Comprehension Practice — Paragraph</div>
+          <div class="day-title-te">గద్యాంశ పఠనం & ప్రశ్నలు</div>
+        </div>
+        <div class="day-check" id="chk-41" onclick="markDone(event,41)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 Read and Answer — పఠన పాఠం</div>
+          <div class="passage-box">
+            తెలుగు రాష్ట్రాల ప్రజలు వ్యవసాయాన్ని ప్రధాన వృత్తిగా స్వీకరిస్తారు. గోదావరి, కృష్ణా నదులు తెలుగు రాష్ట్రాలకు ప్రాణాధారం. వరి, చెరకు, పత్తి ప్రధాన పంటలు. రైతులు కష్టపడి పని చేసి దేశానికి ఆహారం అందిస్తారు.
+            <div class="passage-translation">
+              The people of Telugu states take up farming as their main occupation. The Godavari and Krishna rivers are the lifeline of the Telugu states. Rice, sugarcane, and cotton are the main crops. Farmers work hard and provide food to the country.
+            </div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">❓ Comprehension Questions</div>
+          <div class="exercise-box">
+            <h4>Answer in Telugu (1-2 sentences each):</h4>
+            <div class="exercise-item">1. తెలుగు రాష్ట్రాల ప్రజల ప్రధాన వృత్తి ఏమిటి?</div>
+            <div class="exercise-item">2. తెలుగు రాష్ట్రాలకు ప్రాణాధారమైన నదులు ఏవి?</div>
+            <div class="exercise-item">3. ప్రధాన పంటలు ఏవి?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card" id="card-42" onclick="toggleCard(42)">
+      <div class="day-card-header">
+        <div class="day-number phase3-num">42</div>
+        <div class="day-title-block">
+          <div class="day-title">Kriya Visheshanalu — Adverbs</div>
+          <div class="day-title-te">క్రియా విశేషణాలు</div>
+        </div>
+        <div class="day-check" id="chk-42" onclick="markDone(event,42)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Common Telugu Adverbs</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Meaning</th><th>Example</th></tr>
+            <tr><td>వేగంగా</td><td>Quickly/fast</td><td>వేగంగా వెళ్ళు (Go fast)</td></tr>
+            <tr><td>నెమ్మదిగా</td><td>Slowly</td><td>నెమ్మదిగా మాట్లాడు (Speak slowly)</td></tr>
+            <tr><td>బాగా</td><td>Well/nicely</td><td>బాగా చదువు (Study well)</td></tr>
+            <tr><td>తప్పక</td><td>Definitely</td><td>తప్పక వస్తాను (I will definitely come)</td></tr>
+            <tr><td>ఎప్పుడూ</td><td>Always</td><td>ఎప్పుడూ నిజం చెప్పు (Always speak truth)</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card" id="card-43" onclick="toggleCard(43)">
+      <div class="day-card-header">
+        <div class="day-number phase3-num">43</div>
+        <div class="day-title-block">
+          <div class="day-title">Vishesha Padyalu — Special Poems</div>
+          <div class="day-title-te">శ్రీ కృష్ణశతకం పద్యాలు</div>
+        </div>
+        <div class="day-check" id="chk-43" onclick="markDone(event,43)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">🎵 Sri Krishna Satakam — Famous Poem</div>
+          <div class="poem-box">
+            నమ్మిన భక్తుల నడిపించువాడ,
+            సమ్మతమైన సదాచారుండ,
+            నిమ్మళముగ నుండి వేమన తరింపు
+            విశ్వదాభిరామ వినుర వేమ!
+            <div class="poem-meaning">
+              You who lead devoted believers, one who maintains proper conduct, let Vema live peacefully and cross this ocean of life. — O Vema, hear me, O Beloved of the Universe!
+            </div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Poetic Vocabulary</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Meaning</th></tr>
+            <tr><td>భక్తుడు</td><td>Devotee</td></tr>
+            <tr><td>సదాచారుండ</td><td>One of good conduct</td></tr>
+            <tr><td>నిమ్మళముగ</td><td>Peacefully</td></tr>
+            <tr><td>తరించు</td><td>To cross over / attain salvation</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card" id="card-44" onclick="toggleCard(44)">
+      <div class="day-card-header">
+        <div class="day-number phase3-num">44</div>
+        <div class="day-title-block">
+          <div class="day-title">Phase 3 Grammar Summary</div>
+          <div class="day-title-te">వ్యాకరణ సారాంశం</div>
+        </div>
+        <div class="day-check" id="chk-44" onclick="markDone(event,44)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📋 Grammar Topics Recap</div>
+          <div class="ref-strip">
+            <div class="ref-chip"><span>సంధులు</span>Euphonic merges</div>
+            <div class="ref-chip"><span>సమాసాలు</span>Compound words</div>
+            <div class="ref-chip"><span>అలంకారాలు</span>Figures of speech</div>
+            <div class="ref-chip"><span>విభక్తులు</span>Case markers</div>
+            <div class="ref-chip"><span>కాలాలు</span>Tenses</div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Quick Review Exercise</div>
+          <div class="exercise-box">
+            <h4>Identify the grammar concept in each example:</h4>
+            <div class="exercise-item">రామాలయం = రామ + ఆలయం → ______ సంధి</div>
+            <div class="exercise-item">తల్లిదండ్రులు = తల్లి + తండ్రి → ______ సమాసం</div>
+            <div class="exercise-item">చంద్రుని వంటి ముఖం = ______ అలంకారం</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card" id="card-45" onclick="toggleCard(45)">
+      <div class="day-card-header">
+        <div class="day-number phase3-num">45</div>
+        <div class="day-title-block">
+          <div class="day-title">Phase 3 Review & Mini Test</div>
+          <div class="day-title-te">పద్యం, గద్యం, వ్యాకరణం పరీక్ష</div>
+        </div>
+        <div class="day-check" id="chk-45" onclick="markDone(event,45)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">🏆 Phase 3 Complete!</div>
+          <div class="lesson-text">You can now read prose passages, understand classical Telugu poetry, identify Sandhulu, Samasalu, and Alankaralu, and write formal letters and essays. Phase 4 brings 9th grade mastery!</div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Mini Test</div>
+          <div class="exercise-box">
+            <h4>Write from memory:</h4>
+            <div class="exercise-item">1. Write a 5-sentence essay on "వర్షాకాలం" (Rainy Season)</div>
+            <div class="exercise-item">2. Recite Vemana's "ఉప్పు కప్పురంబు" verse fully</div>
+            <div class="exercise-item">3. Write a leave letter to your headmaster</div>
+            <div class="exercise-item">4. Give 3 examples each of ఉపమ and రూపకం</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ===== PHASE 4 ===== -->
+<div id="phase4" class="phase-section">
+  <div class="phase-header phase4-bg">
+    <h2>🎓 Phase 4: 9వ తరగతి పాఠ్యక్రమం</h2>
+    <div class="phase-telugu">9th Grade CBSE AP Syllabus Mastery</div>
+    <p>Days 46–60 | Deep dive into the AP 9th Grade Telugu textbook prose, poetry, grammar, and exam preparation.</p>
+  </div>
+
+  <div class="days-grid">
+
+    <!-- DAY 46 -->
+    <div class="day-card" id="card-46" onclick="toggleCard(46)">
+      <div class="day-card-header">
+        <div class="day-number phase4-num">46</div>
+        <div class="day-title-block">
+          <div class="day-title">Textbook Lesson 1 — Gadya</div>
+          <div class="day-title-te">పాఠ్యపుస్తకం — మొదటి గద్యపాఠం</div>
+        </div>
+        <div class="day-check" id="chk-46" onclick="markDone(event,46)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 First Prose Lesson — "కల్యాణగుణాలు" (Virtuous Qualities)</div>
+          <div class="passage-box">
+            విద్యార్థి జీవితం అత్యంత విలువైనది. ఈ దశలో మనం చదువు, క్రమశిక్షణ, విధేయత, సేవాభావం వంటి గుణాలు అలవర్చుకోవాలి. క్రమశిక్షణ గల విద్యార్థి మాత్రమే జీవితంలో విజయం సాధించగలడు. గురువు చెప్పిన మాటలు పాటించడం, పెద్దలను గౌరవించడం మన ధర్మం.
+            <div class="passage-translation">
+              Student life is very valuable. In this phase, we must cultivate qualities like education, discipline, obedience, and service. Only a disciplined student can achieve success in life. Following the teacher's words and respecting elders is our duty.
+            </div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Important Words from Lesson</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Meaning</th></tr>
+            <tr><td>విలువైనది</td><td>Valuable</td></tr>
+            <tr><td>క్రమశిక్షణ</td><td>Discipline</td></tr>
+            <tr><td>విధేయత</td><td>Obedience</td></tr>
+            <tr><td>సేవాభావం</td><td>Spirit of service</td></tr>
+            <tr><td>విజయం</td><td>Victory / Success</td></tr>
+            <tr><td>ధర్మం</td><td>Duty / Righteousness</td></tr>
+          </table>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">❓ Exam-Style Questions</div>
+          <div class="exercise-box">
+            <h4>Short Answer (2 marks each):</h4>
+            <div class="exercise-item">1. విద్యార్థి జీవితంలో ఏ గుణాలు అవసరం?</div>
+            <div class="exercise-item">2. "క్రమశిక్షణ" అంటే ఏమిటి?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 47 -->
+    <div class="day-card" id="card-47" onclick="toggleCard(47)">
+      <div class="day-card-header">
+        <div class="day-number phase4-num">47</div>
+        <div class="day-title-block">
+          <div class="day-title">Textbook Poem — Padyam Study</div>
+          <div class="day-title-te">పాఠ్యపుస్తకం పద్యపాఠం</div>
+        </div>
+        <div class="day-check" id="chk-47" onclick="markDone(event,47)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">🎵 9th Grade Prescribed Poem — Patriotic</div>
+          <div class="poem-box">
+            జయ జయ జయ ప్రియ భారత జనయిత్రీ!
+            దివ్య జన్మభూమి, తల్లీ నమోస్తుతే!
+            భరత మాత చరణములకు మ్రొక్కెదం
+            పరమ పావన భూమి మాకు కల్యాణం కలుగు!
+            <div class="poem-meaning">
+              Victory! Victory! Victory to dear motherland India! Divine birthplace, O Mother, I bow to you! I bow at the feet of Bharat Mata. May this supremely sacred land grant us blessings!
+            </div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Poetic Terms to Know</div>
+          <table class="vocab-table">
+            <tr><th>Telugu</th><th>Meaning</th></tr>
+            <tr><td>జనయిత్రి</td><td>Mother / One who gives birth</td></tr>
+            <tr><td>దివ్య</td><td>Divine</td></tr>
+            <tr><td>మ్రొక్కు</td><td>To bow / to prostrate</td></tr>
+            <tr><td>పరమ పావన</td><td>Supremely sacred</td></tr>
+            <tr><td>కల్యాణం</td><td>Auspiciousness / Blessings</td></tr>
+          </table>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">✍️ Poem Analysis (for exam)</div>
+          <div class="exercise-box">
+            <h4>Answer these standard exam questions:</h4>
+            <div class="exercise-item">1. ఈ పద్యంలో కవి ఎవరిని స్తుతిస్తున్నాడు?</div>
+            <div class="exercise-item">2. "జనయిత్రి" అంటే ఏమిటి? (2 marks)</div>
+            <div class="exercise-item">3. ఈ పద్యంలో ఏ అలంకారం ఉంది?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 48 -->
+    <div class="day-card" id="card-48" onclick="toggleCard(48)">
+      <div class="day-card-header">
+        <div class="day-number phase4-num">48</div>
+        <div class="day-title-block">
+          <div class="day-title">Advanced Grammar — Kriyalu</div>
+          <div class="day-title-te">క్రియలు — సకర్మక, అకర్మక</div>
+        </div>
+        <div class="day-check" id="chk-48" onclick="markDone(event,48)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 Transitive & Intransitive Verbs</div>
+          <div class="grammar-box">
+            <h4>సకర్మక క్రియ (Transitive — needs an object)</h4>
+            <div class="lesson-text">రాముడు పుస్తకం <strong>చదివాడు</strong>. (Ramu READ a book — 'book' is the object)</div>
+          </div>
+          <div class="grammar-box">
+            <h4>అకర్మక క్రియ (Intransitive — no object needed)</h4>
+            <div class="lesson-text">పిల్లవాడు <strong>నడిచాడు</strong>. (The child WALKED — no object)</div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Examples</div>
+          <table class="vocab-table">
+            <tr><th>Verb</th><th>Type</th><th>Example</th></tr>
+            <tr><td>చదువు</td><td>సకర్మకం</td><td>పుస్తకం చదివాను</td></tr>
+            <tr><td>నడు</td><td>అకర్మకం</td><td>నేను నడిచాను</td></tr>
+            <tr><td>తిను</td><td>సకర్మకం</td><td>అన్నం తిన్నాను</td></tr>
+            <tr><td>నవ్వు</td><td>అకర్మకం</td><td>అతడు నవ్వాడు</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 49 -->
+    <div class="day-card" id="card-49" onclick="toggleCard(49)">
+      <div class="day-card-header">
+        <div class="day-number phase4-num">49</div>
+        <div class="day-title-block">
+          <div class="day-title">Opposite Words & Synonyms</div>
+          <div class="day-title-te">వ్యతిరేక పదాలు & పర్యాయ పదాలు</div>
+        </div>
+        <div class="day-check" id="chk-49" onclick="markDone(event,49)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📝 వ్యతిరేక పదాలు (Antonyms)</div>
+          <table class="vocab-table">
+            <tr><th>Word</th><th>Meaning</th><th>Opposite</th><th>Meaning</th></tr>
+            <tr><td>మంచి</td><td>Good</td><td>చెడు</td><td>Bad</td></tr>
+            <tr><td>పెద్ద</td><td>Big</td><td>చిన్న</td><td>Small</td></tr>
+            <tr><td>సత్యం</td><td>Truth</td><td>అసత్యం</td><td>Lie</td></tr>
+            <tr><td>ప్రేమ</td><td>Love</td><td>ద్వేషం</td><td>Hatred</td></tr>
+            <tr><td>వెలుతురు</td><td>Light</td><td>చీకటి</td><td>Darkness</td></tr>
+            <tr><td>జయం</td><td>Victory</td><td>పరాజయం</td><td>Defeat</td></tr>
+          </table>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 పర్యాయ పదాలు (Synonyms)</div>
+          <table class="vocab-table">
+            <tr><th>Word</th><th>Synonyms</th></tr>
+            <tr><td>నీరు</td><td>జలం, వారి, అంబు, పానీయం</td></tr>
+            <tr><td>సూర్యుడు</td><td>రవి, భాస్కరుడు, దినకరుడు</td></tr>
+            <tr><td>తల్లి</td><td>అమ్మ, జనని, మాత, ప్రసూతి</td></tr>
+            <tr><td>రాజు</td><td>నృపుడు, భూపాలుడు, మహారాజు</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 50 -->
+    <div class="day-card" id="card-50" onclick="toggleCard(50)">
+      <div class="day-card-header">
+        <div class="day-number phase4-num">50</div>
+        <div class="day-title-block">
+          <div class="day-title">Proverbs — సామెతలు</div>
+          <div class="day-title-te">తెలుగు సామెతలు</div>
+        </div>
+        <div class="day-check" id="chk-50" onclick="markDone(event,50)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">🌟 Famous Telugu Proverbs — Must Know for Exam!</div>
+          <table class="vocab-table">
+            <tr><th>Proverb (సామెత)</th><th>Meaning</th></tr>
+            <tr><td>చదువు సద్గుణాలకు పెట్టని కోట</td><td>Education is an impregnable fortress of good qualities</td></tr>
+            <tr><td>ఆకలికి రుచి ఉంటుందా?</td><td>When truly hungry, taste doesn't matter (need overcomes preference)</td></tr>
+            <tr><td>అన్నట్టు చేయాలి, చేసినట్టు చెప్పాలి</td><td>Do as you say; say as you do (integrity)</td></tr>
+            <tr><td>నూరు మాటలేల? ఒక్క మాటలో చెప్పు</td><td>Why a hundred words? Say it in one (be concise)</td></tr>
+            <tr><td>ఇల్లు నిండా పిల్లలు... ఇల్లు ఇల్లంతా</td><td>A house full of children is a home complete</td></tr>
+            <tr><td>కష్టేఫలే</td><td>Hard work leads to results (Sanskrit loan)</td></tr>
+          </table>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">✍️ Exercise — Use a proverb in a sentence</div>
+          <div class="exercise-box">
+            <h4>Complete these using a suitable proverb:</h4>
+            <div class="exercise-item">రాముడు చాలా కష్టపడి చదివాడు. అందుకే ___.</div>
+            <div class="exercise-item">రోజూ చెప్పే మాటలు పాటించడం అంటే ___.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 51 -->
+    <div class="day-card" id="card-51" onclick="toggleCard(51)">
+      <div class="day-card-header">
+        <div class="day-number phase4-num">51</div>
+        <div class="day-title-block">
+          <div class="day-title">Advanced Essay — Descriptive</div>
+          <div class="day-title-te">పల్లె జీవితం / వర్షాకాలం వ్యాసం</div>
+        </div>
+        <div class="day-check" id="chk-51" onclick="markDone(event,51)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Sample Essay — వర్షాకాలం (Rainy Season)</div>
+          <div class="passage-box">
+            <strong>ముందుమాట:</strong> వర్షాకాలం ప్రకృతికి ఒక వరం. ఆషాఢ, శ్రావణ మాసాలలో వర్షాలు పడతాయి.
+            <br><br>
+            <strong>విషయ వివరణ:</strong> నల్లని మేఘాలు ఆకాశాన్ని కప్పేస్తాయి. పిల్లలు వర్షంలో ఆడటానికి ఇష్టపడతారు. చెట్లు, పొలాలు పచ్చగా మారతాయి. రైతులకు వర్షాకాలం చాలా ముఖ్యమైనది. నదులు, చెరువులు నీటితో నిండిపోతాయి.
+            <br><br>
+            <strong>ముగింపు:</strong> వర్షాకాలం ప్రకృతి సౌందర్యాన్ని, జీవితానికి అవసరమైన నీటిని ప్రసాదిస్తుంది. అందుకే దీన్ని "ప్రకృతి పర్వం" అంటారు.
+            <div class="passage-translation">Rainy season is a blessing to nature... Black clouds cover the sky. Children love to play in the rain. Trees and fields turn green. Rainy season is very important for farmers... Rainy season gifts us beauty and the water needed for life. That is why it is called "Nature's Festival."</div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">✍️ Your Essay Topics to Practice</div>
+          <div class="exercise-box">
+            <h4>Write 6-8 sentences on each:</h4>
+            <div class="exercise-item">1. "నా ప్రియమైన పండుగ" (My favorite festival)</div>
+            <div class="exercise-item">2. "పల్లె జీవితం" (Village life)</div>
+            <div class="exercise-item">3. "నా లక్ష్యం" (My aim in life)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 52-55 -->
+    <div class="day-card" id="card-52" onclick="toggleCard(52)">
+      <div class="day-card-header">
+        <div class="day-number phase4-num">52</div>
+        <div class="day-title-block">
+          <div class="day-title">Grammar — Vibhaktulu (Case Markers)</div>
+          <div class="day-title-te">విభక్తులు — 8 కారకాలు</div>
+        </div>
+        <div class="day-check" id="chk-52" onclick="markDone(event,52)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 Telugu has 8 Cases (విభక్తులు)</div>
+          <table class="vocab-table">
+            <tr><th>#</th><th>Name</th><th>Suffix</th><th>Meaning</th><th>Example</th></tr>
+            <tr><td>1</td><td>ప్రథమ</td><td>డు/ము/వు</td><td>Nominative (who)</td><td>రాముడు (Rama)</td></tr>
+            <tr><td>2</td><td>ద్వితీయ</td><td>ను/ని</td><td>Accusative (whom/what)</td><td>రామున్ని చూచాను</td></tr>
+            <tr><td>3</td><td>తృతీయ</td><td>తో/చే</td><td>Instrumental (by/with)</td><td>కలంతో రాశాను</td></tr>
+            <tr><td>4</td><td>చతుర్థి</td><td>కు/కి</td><td>Dative (for/to)</td><td>రాముకు ఇచ్చాను</td></tr>
+            <tr><td>5</td><td>పంచమి</td><td>నుండి</td><td>Ablative (from)</td><td>ఇంటి నుండి</td></tr>
+            <tr><td>6</td><td>షష్ఠి</td><td>యొక్క</td><td>Genitive (of)</td><td>రాముని యొక్క</td></tr>
+            <tr><td>7</td><td>సప్తమి</td><td>లో/పై</td><td>Locative (in/on)</td><td>ఇంట్లో</td></tr>
+            <tr><td>8</td><td>సంబోధన</td><td>ఓ/అయ్యా</td><td>Vocative (O!)</td><td>ఓ రామా!</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card" id="card-53" onclick="toggleCard(53)">
+      <div class="day-card-header">
+        <div class="day-number phase4-num">53</div>
+        <div class="day-title-block">
+          <div class="day-title">Comprehension — Long Passage</div>
+          <div class="day-title-te">దీర్ఘ గద్యాంశ పఠనం</div>
+        </div>
+        <div class="day-check" id="chk-53" onclick="markDone(event,53)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📖 Long Passage — APJ Abdul Kalam</div>
+          <div class="passage-box">
+            డాక్టర్ ఏ.పి.జె. అబ్దుల్ కలాం భారతదేశపు గొప్ప శాస్త్రవేత్త మరియు 11వ రాష్ట్రపతి. తమిళనాడులోని రామేశ్వరంలో జన్మించారు. పేదరికంలో పెరిగినా ఆయన కఠోర పరిశ్రమతో గొప్ప శాస్త్రవేత్త అయ్యారు. భారత అంతరిక్ష కార్యక్రమాన్ని ముందుకు నడిపించారు. ఆయనను "మిసైల్ మ్యాన్ ఆఫ్ ఇండియా" అంటారు. "స్వప్నాలు చూడండి, వాటిని నెరవేర్చుకోవడానికి కష్టపడండి" అని ఆయన యువతకు సందేశమిచ్చారు.
+            <div class="passage-translation">
+              Dr. APJ Abdul Kalam was a great scientist and the 11th President of India. He was born in Rameswaram, Tamil Nadu. Though raised in poverty, through hard work he became a great scientist. He advanced India's space program. He is called the "Missile Man of India." His message to youth: "Dream, and work hard to fulfill those dreams."
+            </div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">❓ Exam Questions (5 marks)</div>
+          <div class="exercise-box">
+            <h4>Answer in Telugu:</h4>
+            <div class="exercise-item">1. అబ్దుల్ కలాం ఎక్కడ జన్మించారు?</div>
+            <div class="exercise-item">2. ఆయన్ను "మిసైల్ మ్యాన్" అని ఎందుకు అంటారు?</div>
+            <div class="exercise-item">3. ఆయన యువతకు ఏమి సందేశమిచ్చారు?</div>
+            <div class="exercise-item">4. "కఠోర పరిశ్రమ" అంటే ఏమిటి?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card" id="card-54" onclick="toggleCard(54)">
+      <div class="day-card-header">
+        <div class="day-number phase4-num">54</div>
+        <div class="day-title-block">
+          <div class="day-title">Letter — Official & Friendly</div>
+          <div class="day-title-te">అధికారిక & స్నేహపూర్వక లేఖలు</div>
+        </div>
+        <div class="day-check" id="chk-54" onclick="markDone(event,54)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Friendly Letter — స్నేహపూర్వక లేఖ</div>
+          <div class="passage-box">
+            హైదరాబాద్<br>
+            12-06-2025<br><br>
+            ప్రియమైన రాహుల్‌కు,<br><br>
+            నమస్కారం! నేను ఇక్కడ బాగున్నాను. నువ్వు ఎలా ఉన్నావు? వేసవి సెలవులు చాలా సంతోషంగా గడిపాను. మన పాఠశాలలో వార్షిక క్రీడలు జరిగాయి. నేను 100 మీటర్ల పరుగు పోటీలో మొదటి స్థానం సాధించాను.<br><br>
+            నీకు నవ్వులు, నమస్కారాలతో,<br>
+            నీ మిత్రుడు, సురేష్
+            <div class="passage-translation">
+              Dear Rahul, Greetings! I am fine here. How are you? I spent the summer holidays very happily. Annual sports were held in our school. I won first place in the 100-meter race. With smiles and greetings, your friend, Suresh.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card" id="card-55" onclick="toggleCard(55)">
+      <div class="day-card-header">
+        <div class="day-number phase4-num">55</div>
+        <div class="day-title-block">
+          <div class="day-title">Dialogue Writing — సంభాషణ రచన</div>
+          <div class="day-title-te">రెండు పాత్రల మధ్య సంభాషణ</div>
+        </div>
+        <div class="day-check" id="chk-55" onclick="markDone(event,55)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Sample Dialogue — Teacher & Student</div>
+          <div class="passage-box">
+            <strong>గురువు:</strong> రమేష్, నువ్వు నిన్న స్కూలుకు ఎందుకు రాలేదు?
+            <br><br>
+            <strong>విద్యార్థి:</strong> మాస్టారూ, నాకు జ్వరం వచ్చింది. అందుకే రాలేకపోయాను.
+            <br><br>
+            <strong>గురువు:</strong> ఇప్పుడు నయమైందా?
+            <br><br>
+            <strong>విద్యార్థి:</strong> అవును, మాస్టారూ. నేటి నుండి క్రమంగా హాజరవుతాను.
+            <br><br>
+            <strong>గురువు:</strong> సరే. ఏ పాఠాలు మిస్ అయ్యావో తెలుసుకో. మీ స్నేహితుల నోట్సు చూడు.
+            <div class="passage-translation">Teacher: Ramesh, why didn't you come to school yesterday? Student: Sir, I had fever... Teacher: Are you better now? Student: Yes sir. From today I will attend regularly. Teacher: Okay. Find out which lessons you missed. Look at your friends' notes.</div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">✍️ Write your own dialogue</div>
+          <div class="exercise-box">
+            <h4>Write a 6-line dialogue between:</h4>
+            <div class="exercise-item">A parent and child about exam preparation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAYS 56-60 -->
+    <div class="day-card" id="card-56" onclick="toggleCard(56)">
+      <div class="day-card-header">
+        <div class="day-number phase4-num">56</div>
+        <div class="day-title-block">
+          <div class="day-title">Full Grammar Revision</div>
+          <div class="day-title-te">సంపూర్ణ వ్యాకరణ పునరావలోకనం</div>
+        </div>
+        <div class="day-check" id="chk-56" onclick="markDone(event,56)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📋 Complete Grammar Checklist</div>
+          <div class="ref-strip">
+            <div class="ref-chip"><span>అచ్చులు 16</span>Vowels</div>
+            <div class="ref-chip"><span>హల్లులు 36</span>Consonants</div>
+            <div class="ref-chip"><span>విభక్తులు 8</span>Cases</div>
+            <div class="ref-chip"><span>కాలాలు 3</span>Tenses</div>
+            <div class="ref-chip"><span>సంధులు</span>Sandhi</div>
+            <div class="ref-chip"><span>సమాసాలు 5</span>Compounds</div>
+            <div class="ref-chip"><span>అలంకారాలు</span>Figures</div>
+            <div class="ref-chip"><span>సామెతలు</span>Proverbs</div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Rapid-fire Practice</div>
+          <div class="exercise-box">
+            <h4>Write 5 examples for each (without notes):</h4>
+            <div class="exercise-item">సకర్మక క్రియలు (Transitive verbs)</div>
+            <div class="exercise-item">అకర్మక క్రియలు (Intransitive verbs)</div>
+            <div class="exercise-item">వ్యతిరేక పదాలు (Antonyms)</div>
+            <div class="exercise-item">పర్యాయ పదాలు (Synonyms)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card" id="card-57" onclick="toggleCard(57)">
+      <div class="day-card-header">
+        <div class="day-number phase4-num">57</div>
+        <div class="day-title-block">
+          <div class="day-title">Literature Revision — All Poems</div>
+          <div class="day-title-te">పద్య పాఠాల పున‌రావలోకనం</div>
+        </div>
+        <div class="day-check" id="chk-57" onclick="markDone(event,57)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">🎵 Revision — All Poems Studied</div>
+          <div class="ref-strip">
+            <div class="ref-chip">సుమతీ శతకం (Baddena)</div>
+            <div class="ref-chip">వేమన శతకం (Vemana)</div>
+            <div class="ref-chip">దేశభక్తి పద్యాలు</div>
+            <div class="ref-chip">శ్రీ కృష్ణశతకం</div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Poem Analysis Template (Exam format)</div>
+          <div class="exercise-box">
+            <h4>For each poem, write:</h4>
+            <div class="exercise-item">1. కవి పేరు (Poet's name)</div>
+            <div class="exercise-item">2. పద్యభావం (Meaning of the poem)</div>
+            <div class="exercise-item">3. కఠిన పదాల అర్థాలు (Meanings of difficult words)</div>
+            <div class="exercise-item">4. అలంకారాలు (Figures of speech used)</div>
+            <div class="exercise-item">5. నీతి / సందేశం (Moral/message)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card" id="card-58" onclick="toggleCard(58)">
+      <div class="day-card-header">
+        <div class="day-number phase4-num">58</div>
+        <div class="day-title-block">
+          <div class="day-title">Mock Exam Paper</div>
+          <div class="day-title-te">నకిలీ పరీక్ష పత్రం — అభ్యాసం</div>
+        </div>
+        <div class="day-check" id="chk-58" onclick="markDone(event,58)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">📝 Mock Test — 9th Grade Telugu (60 mins)</div>
+          <div class="exercise-box">
+            <h4>Section A — Reading (15 marks)</h4>
+            <div class="exercise-item">1. Read the given prose passage and answer 5 questions. (5×2=10)</div>
+            <div class="exercise-item">2. Explain the meaning of underlined words. (5×1=5)</div>
+          </div>
+          <div class="exercise-box">
+            <h4>Section B — Grammar (20 marks)</h4>
+            <div class="exercise-item">3. Identify Sandhulu in given sentences. (5)</div>
+            <div class="exercise-item">4. Name the Samasam type. (5)</div>
+            <div class="exercise-item">5. Identify Alankarams. (5)</div>
+            <div class="exercise-item">6. Write 5 antonyms. (5)</div>
+          </div>
+          <div class="exercise-box">
+            <h4>Section C — Writing (25 marks)</h4>
+            <div class="exercise-item">7. Write a leave letter. (10)</div>
+            <div class="exercise-item">8. Essay on "నా ప్రియమైన ఉపాధ్యాయుడు" (10)</div>
+            <div class="exercise-item">9. Write a dialogue (5)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card" id="card-59" onclick="toggleCard(59)">
+      <div class="day-card-header">
+        <div class="day-number phase4-num">59</div>
+        <div class="day-title-block">
+          <div class="day-title">Final Revision — Key Points</div>
+          <div class="day-title-te">చివరి పున‌రావలోకనం</div>
+        </div>
+        <div class="day-check" id="chk-59" onclick="markDone(event,59)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">🎯 Must Remember for Exam</div>
+          <div class="grammar-box">
+            <h4>Quick Reference — Essential Points</h4>
+            <div class="lesson-text">
+              ✅ 16 Vowels (అచ్చులు)<br>
+              ✅ 5 consonant groups + special letters<br>
+              ✅ SOV word order in Telugu<br>
+              ✅ 3 tenses with verb forms<br>
+              ✅ 8 vibhaktulu (case markers)<br>
+              ✅ 5 types of Samasalu<br>
+              ✅ Main Sandhulu (savarna, visarga)<br>
+              ✅ ఉపమ vs రూపకం<br>
+              ✅ Letter format (formal & friendly)<br>
+              ✅ Essay structure (3 parts)<br>
+              ✅ Poets: Nannaya, Tikkana, Errapragada, Baddena, Vemana
+            </div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">🌟 Famous Telugu Quotes to Remember</div>
+          <div class="telugu-box">
+            <span class="te-word">తెలుగు వెలుగు!</span>
+            <span class="te-translit">Telugu Veluguuu!</span>
+            <span class="te-meaning">Telugu is radiance / light!</span>
+          </div>
+          <div class="telugu-box">
+            <span class="te-word">జ్ఞానమే శక్తి.</span>
+            <span class="te-translit">Jñānamē śakti.</span>
+            <span class="te-meaning">Knowledge is power.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 60 — GRAND FINALE -->
+    <div class="day-card" id="card-60" onclick="toggleCard(60)" style="grid-column: 1 / -1; border-color: var(--turmeric);">
+      <div class="day-card-header" style="background: linear-gradient(135deg, rgba(255,153,51,0.15), rgba(200,60,0,0.1));">
+        <div class="day-number" style="background:linear-gradient(135deg,var(--saffron),var(--turmeric));color:#000;border:none;font-size:1.1rem;font-weight:900;">60🎓</div>
+        <div class="day-title-block">
+          <div class="day-title" style="font-size:1.2rem;color:var(--saffron);">🎊 DAY 60 — GRADUATION! తెలుగు పండితుడు / పండితురాలు</div>
+          <div class="day-title-te" style="font-size:1.1rem;">నీవు 9వ తరగతి తెలుగు స్థాయికి చేరావు! అభినందనలు!</div>
+        </div>
+        <div class="day-check" id="chk-60" onclick="markDone(event,60)">✓</div>
+      </div>
+      <div class="day-card-body">
+        <div class="lesson-section">
+          <div class="lesson-label">🏆 You Did It!</div>
+          <div class="lesson-text" style="font-size:1.1rem;line-height:1.8;">
+            Over 60 days, you went from zero Telugu knowledge to 9th grade CBSE level! You learned:
+          </div>
+          <div class="ref-strip" style="margin-top:1rem;">
+            <div class="ref-chip">✅ Full Telugu script</div>
+            <div class="ref-chip">✅ 300+ vocabulary words</div>
+            <div class="ref-chip">✅ All 3 tenses</div>
+            <div class="ref-chip">✅ Grammar rules</div>
+            <div class="ref-chip">✅ Classical poetry</div>
+            <div class="ref-chip">✅ Essay & letter writing</div>
+            <div class="ref-chip">✅ Proverbs & sayings</div>
+            <div class="ref-chip">✅ Reading comprehension</div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">🎵 Final Poem — చదువు మహత్తు</div>
+          <div class="poem-box">
+            చదువు చదువు చదువు నాయనా,
+            జ్ఞానము నేర్చుకో మానవా!
+            అడవిలోని మెరుపు వెలుతురు వంటి
+            అద్భుత జ్ఞానము గడించు!
+            <div class="poem-meaning">Study, study, study my dear child! Learn knowledge, O human! Like the flash of lightning in the forest — gain that wonderful knowledge!</div>
+          </div>
+        </div>
+        <div class="lesson-section">
+          <div class="lesson-label">🎯 Next Steps After Day 60</div>
+          <div class="grammar-box">
+            <h4>Continue improving Telugu with these:</h4>
+            <div class="lesson-text">
+              📚 Read the full 9th grade AP textbook (all chapters)<br>
+              📺 Watch Telugu news / DD Telugu channel daily<br>
+              🎵 Listen to classical Telugu songs (Carnatic music)<br>
+              📰 Read Eenadu or Sakshi newspaper (easy articles)<br>
+              🗣️ Practice speaking with family / friends in Telugu<br>
+              📝 Write a daily diary in Telugu (5 sentences/day)
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;padding:1.5rem 0;">
+          <div class="telugu-box" style="max-width:400px;margin:0 auto;">
+            <span class="te-word" style="font-size:2.5rem;">అభినందనలు! 🌟</span>
+            <span class="te-translit">Abhinandanalu!</span>
+            <span class="te-meaning">Congratulations! You are now a Telugu scholar!</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</main>
+
+<footer>
+  <div>తెలుగు నేర్చుకోవడం పూర్తి చేసినందుకు అభినందనలు! 🙏</div>
+  <div class="footer-te">చదువే మనిషి జీవితపు వెలుతురు</div>
+  <div style="margin-top:0.5rem;font-size:0.8rem;color:rgba(255,255,255,0.3)">60-Day Telugu Program · AP CBSE 9th Grade · Designed for Returning Students</div>
+</footer>
+
+<script>
+  // Progress tracking
+  const completed = JSON.parse(localStorage.getItem('telugu_progress') || '{}');
+
+  function updateProgress() {
+    const done = Object.values(completed).filter(Boolean).length;
+    document.getElementById('main-progress').style.width = (done / 60 * 100) + '%';
+    document.getElementById('prog-pct').textContent = done + ' / 60 Days';
+  }
+
+  function markDone(event, day) {
+    event.stopPropagation();
+    completed[day] = !completed[day];
+    localStorage.setItem('telugu_progress', JSON.stringify(completed));
+    const chk = document.getElementById('chk-' + day);
+    const card = document.getElementById('card-' + day);
+    if (completed[day]) {
+      chk.classList.add('done');
+      chk.textContent = '✓';
+      card.classList.add('completed');
+    } else {
+      chk.classList.remove('done');
+      chk.textContent = '✓';
+      card.classList.remove('completed');
+    }
+    updateProgress();
+  }
+
+  function toggleCard(day) {
+    const card = document.getElementById('card-' + day);
+    card.classList.toggle('expanded');
+  }
+
+  function showPhase(id) {
+    document.querySelectorAll('.phase-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.phase-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.currentTarget.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Restore completed states on load
+  function restoreProgress() {
+    for (const [day, done] of Object.entries(completed)) {
+      if (done) {
+        const chk = document.getElementById('chk-' + day);
+        const card = document.getElementById('card-' + day);
+        if (chk) { chk.classList.add('done'); card.classList.add('completed'); }
+      }
+    }
+    updateProgress();
+  }
+
+  // Stagger card animations
+  document.querySelectorAll('.day-card').forEach((card, i) => {
+    card.style.animationDelay = (i % 10 * 0.05) + 's';
+  });
+
+  restoreProgress();
+</script>
+</body>
+</html>
