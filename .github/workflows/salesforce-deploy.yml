@@ -1,0 +1,45 @@
+name: Deploy to Salesforce
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "force-app/**"
+      - "sfdx-project.json"
+  workflow_dispatch:
+    inputs:
+      check_only:
+        description: "Validate only (do not actually deploy)"
+        type: boolean
+        default: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install Salesforce CLI
+        run: npm install --global @salesforce/cli
+
+      - name: Authenticate to Salesforce org
+        env:
+          SFDX_AUTH_URL: ${{ secrets.SFDX_AUTH_URL }}
+        run: |
+          echo "$SFDX_AUTH_URL" > ./SFDX_AUTH_URL.txt
+          sf org login sfdx-url --sfdx-url-file ./SFDX_AUTH_URL.txt --alias target-org --set-default
+          rm -f ./SFDX_AUTH_URL.txt
+
+      - name: Deploy source to org
+        run: |
+          if [ "${{ inputs.check_only }}" = "true" ]; then
+            sf project deploy start --source-dir force-app --target-org target-org --dry-run --ignore-conflicts
+          else
+            sf project deploy start --source-dir force-app --target-org target-org --ignore-conflicts
+          fi
